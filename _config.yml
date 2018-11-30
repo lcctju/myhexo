@@ -82,9 +82,9 @@ deploy:
   branch: master
 
 admin:
-  username: lcc
-  password_hash: $2a$10$oNu5umMZlKCVY0mhWDxHNecuu.y6xOgUCfT5lz1WpyuC9pSkO7O3u
-  secret: aj;fsejfsmf;ls;jfszeptujwa;sltdlx*(U)&)(&PIw5jw4lt4ewu6&*&Rw8450w4rt&)&*&)$$)*#@$JLWJRLWSDJ
+#  username: lcc
+#  password_hash: $2b$12$.kPIFuZ2hnA71jpkTL4w8.GBASAA0uOXmI/hvAPd7kbLBUNMuuCeS 
+#  secret: aj;fsejfsmf;ls;jfszeptujwa;sltdlx*(U)&)(&PIw5jw4lt4ewu6&*&Rw8450w4rt&)&*&)$$)*#@$JLWJRLWSDJ
   deployCommand: './hexo-deploy.sh'
 
 feed:
