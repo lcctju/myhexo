@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>chaochao liu</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://lcctju.github.io/"/>
+  <updated>2019-06-05T07:18:23.018Z</updated>
+  <id>https://lcctju.github.io/</id>
+  
+  <author>
+    <name>chaochao liu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络差的情况下用ipv6断点续传</title>
+    <link href="https://lcctju.github.io/2018/11/30/%E7%BD%91%E7%BB%9C%E5%B7%AE%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%94%A8ipv6%E6%96%AD%E7%82%B9%E7%BB%AD%E4%BC%A0/"/>
+    <id>https://lcctju.github.io/2018/11/30/网络差的情况下用ipv6断点续传/</id>
+    <published>2018-11-30T03:17:27.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          * 借助rsync
+* rsync -6 -rP --rsh=&#39;ssh -p port&#39; root@[ipv6]:/dir/file ./
+
+* 用ssh 连接ipv6服务器
+* ssh root@ipv6 -p
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Joint Modeling of Event Sequence and Time Series with Attentional论文笔记</title>
+    <link href="https://lcctju.github.io/2018/11/30/Joint-Modeling-of-Event-Sequence-and-Time-Series-with-Attentional%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    <id>https://lcctju.github.io/2018/11/30/Joint-Modeling-of-Event-Sequence-and-Time-Series-with-Attentional论文笔记/</id>
+    <published>2018-11-30T02:58:49.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      ### motivation
+
+* 事件是异步产生的，事件发生的时间戳与时间序列不同，异步的事件产生的时间戳能够反映网络动力学
+* 而时间序列数据能够反映背景环境的周期性更新，例如计算服务器的温度、病人的血压等
+* 最近的一些研究有对连续时间点过程进行建模的[^1]、[^2]、[^3]、[^4]、[^5]，以及对时间序列建模的[^6]、[^7]、[^8]，但是大部分都是将这两种进行单独处理
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DeepWalk 论文笔记</title>
+    <link href="https://lcctju.github.io/2017/12/27/DeepWalk-%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    <id>https://lcctju.github.io/2017/12/27/DeepWalk-论文笔记/</id>
+    <published>2017-12-27T11:59:47.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      # DeepWalk 论文笔记
+
+
+针对论文[1]的阅读撰写阅读笔记。[DeepWalk的代码实现](https://github.com/phanein/deepwalk)
+
+## 概述
+这篇论文主要提出了在一个网络中，学习节点隐表达的方法——DeepWalk，这个方法在一个连续向量空间中对节点的社会关系进行编码，是语言模型和无监督学习从单词序列到图上的一个扩展。该方法将截断游走的序列当成句子进行学习。该方法具有可扩展，可并行化的特点，可以用来做网络分类和异常点检测。
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从MongoDB抽取数据导入mysql</title>
+    <link href="https://lcctju.github.io/2017/12/27/%E4%BB%8EMongoDB%E6%8A%BD%E5%8F%96%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5mysql/"/>
+    <id>https://lcctju.github.io/2017/12/27/从MongoDB抽取数据导入mysql/</id>
+    <published>2017-12-27T11:58:40.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# -*- coding: utf-8 -*-&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; pymongo &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; MongoClient&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; io&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; traceback&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; sys&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;reload(sys)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sys.setdefaultencoding(&lt;span class=&quot;string&quot;&gt;&#39;utf8&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; MySQLdb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;conn=MySQLdb.connect(host=&lt;span class=&quot;string&quot;&gt;&#39;127.0.0.1&#39;&lt;/span&gt;,port=&lt;span class=&quot;number&quot;&gt;3306&lt;/span&gt;,user=&lt;span class=&quot;string&quot;&gt;&#39;lcc&#39;&lt;/span&gt;,passwd=&lt;span class=&quot;string&quot;&gt;&#39;chaochaoliu&#39;&lt;/span&gt;,db=&lt;span class=&quot;string&quot;&gt;&#39;weibo_casc&#39;&lt;/span&gt;,charset=&lt;span class=&quot;string&quot;&gt;&#39;utf8mb4&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cur=conn.cursor()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sql=&lt;span class=&quot;string&quot;&gt;&#39;INSERT into cas values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HDFS数据用MapReduce导入Hbase</title>
+    <link href="https://lcctju.github.io/2017/12/27/HDFS%E6%95%B0%E6%8D%AE%E7%94%A8MapReduce%E5%AF%BC%E5%85%A5Hbase/"/>
+    <id>https://lcctju.github.io/2017/12/27/HDFS数据用MapReduce导入Hbase/</id>
+    <published>2017-12-27T11:57:46.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      #对应代码如下
+
+
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;package&lt;/span&gt; hbase;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.conf.Configuration;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.fs.Path;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.hbase.HBaseConfiguration;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.hbase.client.Put;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.hbase.io.ImmutableBytesWritable;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.hbase.util.Bytes;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.io.*;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.mapreduce.Job;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.mapreduce.Mapper;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.mapreduce.lib.input.FileInputFormat;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从HDFS上读取带lzo压缩的SequenceFile文件</title>
+    <link href="https://lcctju.github.io/2017/12/27/%E4%BB%8EHDFS%E4%B8%8A%E8%AF%BB%E5%8F%96%E5%B8%A6lzo%E5%8E%8B%E7%BC%A9%E7%9A%84SequenceFile%E6%96%87%E4%BB%B6/"/>
+    <id>https://lcctju.github.io/2017/12/27/从HDFS上读取带lzo压缩的SequenceFile文件/</id>
+    <published>2017-12-27T11:53:41.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      #使用java代码从HDFS上读取带lzo压缩的SequenceFile文件
+
+
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.conf.Configuration;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.fs.*;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; org.apache.hadoop.io.*;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; java.io.*;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; java.util.*;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; * Created by lcc on 17-7-31.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>断网环境下利用pip安装Python离线安装包</title>
+    <link href="https://lcctju.github.io/2017/12/27/%E6%96%AD%E7%BD%91%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%88%A9%E7%94%A8pip%E5%AE%89%E8%A3%85Python%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%8C%85/"/>
+    <id>https://lcctju.github.io/2017/12/27/断网环境下利用pip安装Python离线安装包/</id>
+    <published>2017-12-27T11:52:20.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      从网站提供的编译好的包下载最新版本pip-8.1.2-py2.py3-none-any.whl和wheel-0.29.0-py2.py3-none-any.whl，在packages文件夹中。
+
+从pip文档下载get-pip.py
+
+python.exe get-pip.py --no-index --find-links=d:\python27\packages
+
+
+##打包已安装的包
+
+在D:python27目录下新建packages文件夹用来存储下载下来的所需安装包。
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Latex并排显示</title>
+    <link href="https://lcctju.github.io/2017/12/27/Latex%E5%B9%B6%E6%8E%92%E6%98%BE%E7%A4%BA/"/>
+    <id>https://lcctju.github.io/2017/12/27/Latex并排显示/</id>
+    <published>2017-12-27T11:51:23.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      ##在latex中并排显示代码
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>自定义Vim编辑器源码</title>
+    <link href="https://lcctju.github.io/2017/12/26/%E8%87%AA%E5%AE%9A%E4%B9%89Vim%E7%BC%96%E8%BE%91%E5%99%A8%E6%BA%90%E7%A0%81/"/>
+    <id>https://lcctju.github.io/2017/12/26/自定义Vim编辑器源码/</id>
+    <published>2017-12-26T14:06:01.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      创建文件.vimrc并将文件保存到~/ 目录下
+
+代码如下
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>The Neural Hawkes Process</title>
+    <link href="https://lcctju.github.io/2017/12/26/The-Neural-Hawkes-Process/"/>
+    <id>https://lcctju.github.io/2017/12/26/The-Neural-Hawkes-Process/</id>
+    <published>2017-12-26T11:38:00.000Z</published>
+    <updated>2019-06-05T07:18:23.018Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          ### highlights
+* 过去的事情对现在的事情产生的影响可能是负影响
+* 正向激励不能线性叠加
+* 事件的影响不是逐渐消减的
+*
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
