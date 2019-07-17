@@ -11,6 +11,8 @@ pdflatex -synctex=1 -interaction=nonstopmode "main".tex
 
 网上很多教程都是如何在Linux系统里安装字体，但是即使系统里已经安装中文字体，也会报如下错误：
 
+<!--more-->
+
 ```
 !pdfTeX error: pdflatex (file simhei.ttf): cannot open TrueType font file for reading 
 ```
