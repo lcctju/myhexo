@@ -1,0 +1,18 @@
+// 动画 @duration: 持续时间,  @delay: 延迟播放, @count: 播放次数(infinite: 无限次播放)
+.animation (@name, @duration: 1s, @delay: 0s, @count: infinite) {
+  .ann(@name);
+  .andur(@duration);
+  .andel(@delay);
+  .anc(@count);
+}
+.animation-state (@duration: 1s, @delay: 0s, @count: infinite) {
+  .andur(@duration);
+  .andel(@delay);
+  .anc(@count);
+}
+.transition (@property: transform, @duration: 1s, @delay: 0s, @cubic-bezier: linear) {
+  .tsp(@property);
+  .tsdur(@duration);
+  .tsdel(@delay);
+  .tstf(@cubic-bezier);
+}

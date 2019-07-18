@@ -1,0 +1,144 @@
+// 定位
+.position (@p: absolute, @index: 1, @top: 0, @right: @top, @bottom: @top, @left: @right) {
+  .pos(@p);
+  .t(@top);
+  .b(@bottom);
+  .l(@left);
+  .r(@right);
+  .zi(@index);
+  .top (@p: absolute, @index: 1, @top: 0) {
+    .pos(@p);
+    .t(@top);
+    .zi(@index);
+  }
+  .bottom (@p: absolute, @index: 1, @bottom: 0) {
+    .pos(@p);
+    .b(@bottom);
+    .zi(@index);
+  }
+  .left (@p: absolute, @index: 1, @left: 0) {
+    .pos(@p);
+    .l(@left);
+    .zi(@index);
+  }
+  .right (@p: absolute, @index: 1, @right: 0) {
+    .pos(@p);
+    .r(@right);
+    .zi(@index);
+  }
+  .top-left (@p: absolute, @index: 1, @top: 0, @left: 0) {
+    .pos(@p);
+    .t(@top);
+    .l(@left);
+    .zi(@index);
+  }
+  .top-right (@p: absolute, @index: 1, @top: 0, @right: 0) {
+    .pos(@p);
+    .t(@top);
+    .r(@right);
+    .zi(@index);
+  }
+  .bottom-left (@p: absolute, @index: 1, @bottom: 0, @left: 0) {
+    .pos(@p);
+    .b(@bottom);
+    .l(@left);
+    .zi(@index);
+  }
+  .bottom-right (@p: absolute, @index: 1, @bottom: 0, @right: 0) {
+    .pos(@p);
+    .b(@bottom);
+    .r(@right);
+    .zi(@index);
+  }
+}
+.fixed (@index: 1, @top: 0, @right: @top, @bottom: @top, @left: @right) {
+  .position(fixed, @index, @top, @right, @bottom, @left);
+  .top (@index: 1, @top: 0) {
+    .position>.top(fixed,  @index, @top);
+  }
+  .bottom (@index: 1, @bottom: 0) {
+    .position>.bottom(fixed,  @index, @bottom);
+  }
+  .left (@index: 1, @left: 0) {
+    .position>.left(fixed, @index, @left);
+  }
+  .right (@index: 1, @right: 0) {
+    .position>.right(fixed, @index, @right);
+  }
+  .top-left (@index: 1, @top: 0, @left: 0) {
+    .position>.top-left(fixed, @index, @top, @left);
+  }
+  .top-right (@index: 1, @top: 0, @right: 0) {
+    .position>.top-right(fixed, @index, @top, @right);
+  }
+  .bottom-left (@index: 1, @bottom: 0, @left: 0) {
+    .position>.bottom-left(fixed, @index, @bottom, @left);
+  }
+  .bottom-right (@index: 1, @bottom: 0, @right: 0) {
+    .position>.bottom-right(fixed, @index, @bottom, @right);
+  }
+}
+.absolute (@index: 1, @top: 0, @right: @top, @bottom: @top, @left: @right) {
+  .position(absolute, @index, @top, @right, @bottom, @left);
+  .top (@index: 1, @top: 0) {
+    .position>.top(absolute,  @index, @top);
+  }
+  .bottom (@index: 1, @bottom: 0) {
+    .position>.bottom(absolute,  @index, @bottom);
+  }
+  .left (@index: 1, @left: 0) {
+    .position>.left(absolute, @index, @left);
+  }
+  .right (@index: 1, @right: 0) {
+    .position>.right(absolute, @index, @right);
+  }
+  .top-left (@index: 1, @top: 0, @left: 0) {
+    .position>.top-left(absolute, @index, @top, @left);
+  }
+  .top-right (@index: 1, @top: 0, @right: 0) {
+    .position>.top-right(absolute, @index, @top, @right);
+  }
+  .bottom-left (@index: 1, @bottom: 0, @left: 0) {
+    .position>.bottom-left(absolute, @index, @bottom, @left);
+  }
+  .bottom-right (@index: 1, @bottom: 0, @right: 0) {
+    .position>.bottom-right(absolute, @index, @bottom, @right);
+  }
+}
+.relative (@index: 1, @top: 0, @right: @top, @bottom: @top, @left: @right) {
+  .position(relative, @index, @top, @right, @bottom, @left);
+  .top (@index: 1, @top: 0) {
+    .position>.top(relative,  @index, @top);
+  }
+  .bottom (@index: 1, @bottom: 0) {
+    .position>.bottom(relative,  @index, @bottom);
+  }
+  .left (@index: 1, @left: 0) {
+    .position>.left(relative, @index, @left);
+  }
+  .right (@index: 1, @right: 0) {
+    .position>.right(relative, @index, @right);
+  }
+  .top-left (@index: 1, @top: 0, @left: 0) {
+    .position>.top-left(relative, @index, @top, @left);
+  }
+  .top-right (@index: 1, @top: 0, @right: 0) {
+    .position>.top-right(relative, @index, @top, @right);
+  }
+  .bottom-left (@index: 1, @bottom: 0, @left: 0) {
+    .position>.bottom-left(relative, @index, @bottom, @left);
+  }
+  .bottom-right (@index: 1, @bottom: 0, @right: 0) {
+    .position>.bottom-right(relative, @index, @bottom, @right);
+  }
+}
+.position-cc (@z-index: 1) {
+  .absolute>.top-left(@z-index, 50%, 50%);
+  .translate(-50%, -50%);
+}
+.position-cc (@z-index: 1, @width, @height) {
+  .absolute>.top-left(@z-index, 50%, 50%);
+  .mt(-@height / 2);
+  .ml(-@width / 2);
+  .box(@width, @height);
+}

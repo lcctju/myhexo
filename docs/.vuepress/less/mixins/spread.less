@@ -1,0 +1,135 @@
+// 扩散线条
+.spread () {
+  .top (@width: 100%, @height: 1px, @color: @c-line, @time: 1s) {
+    .transition(transform, @time, 0s, ease-out);
+    &:before {
+      .con("");
+      .d-b;
+      .ml(calc((100% - @width) / 2));
+      .box(@width, @height);
+      .bgc(@color);
+      .scale>.x(0);
+      .transition(transform, @time, 0s, ease-out);
+    }
+    &:hover:before {
+      .ml(calc((100% - @width) / 2));
+      .scale>.x(1);
+      .transition(transform, @time, 0s, ease-out);
+    }
+  }
+  .bottom (@width: 100%, @height: 1px, @color: @c-line, @time: 1s) {
+    .transition(transform, @time, 0s, ease-out);
+    &:after {
+      .con("");
+      .d-b;
+      .ml(calc((100% - @width) / 2));
+      .box(@width, @height);
+      .bgc(@color);
+      .scale>.x(0);
+      .transition(transform, @time, 0s, ease-out);
+    }
+    &:hover:after {
+      .ml(calc((100% - @width) / 2));
+      .scale>.x(1);
+      .transition(transform, @time, 0s, ease-out);
+    }
+  }
+  .left (@width: 1px, @height: 100%, @color: @c-line, @time: 1s) {
+    .transition(transform, @time, 0s, ease-out);
+    &:before {
+      .con("");
+      .box(@width, @height);
+      .bgc(@color);
+      .scale>.y(0);
+      float: left;
+      .transition(transform, @time, 0s, ease-out);
+    }
+    &:hover:before {
+      .scale>.y(1);
+      .transition(transform, @time, 0s, ease-out);
+    }
+  }
+  .right (@width: 1px, @height: 100%, @color: @c-line, @time: 1s) {
+    .transition(transform, @time, 0s, ease-out);
+    &:after {
+      .con("");
+      .box(@width, @height);
+      .bgc(@color);
+      .scale>.y(0);
+      float: right;
+      .transition(transform, @time, 0s, ease-out);
+    }
+    &:hover:after {
+      .scale>.y(1);
+      .transition(transform, @time, 0s, ease-out);
+    }
+  }
+  .top-bottom (@width: 100%, @height: 100%, @color: @c-line, @time: 1s) {
+    .pos(relative);
+    .of-h;
+    .transition(transform, @time, 0s, ease-out);
+    &:after {
+      .con("");
+      .absolute;
+      .box(@width, @height);
+      .bgc(@color);
+      .translate>.y(-100%);
+      .transition(transform, @time, 0s, ease-out);
+    }
+    &:hover:after {
+      .translate>.y(0);
+      .transition(transform, @time, 0s, ease-out);
+    }
+  }
+  .bottom-top (@width: 100%, @height: 100%, @color: @c-line, @time: 1s) {
+    .pos(relative);
+    .of-h;
+    .transition(transform, @time, 0s, ease-out);
+    &:after {
+      .con("");
+      .absolute;
+      .box(@width, @height);
+      .bgc(@color);
+      .translate>.y(100%);
+      .transition(transform, @time, 0s, ease-out);
+    }
+    &:hover:after {
+      .translate>.y(0);
+      .transition(transform, @time, 0s, ease-out);
+    }
+  }
+  .left-right (@width: 100%, @height: 100%, @color: @c-line, @time: 1s) {
+    .pos(relative);
+    .of-h;
+    .transition(transform, @time, 0s, ease-out);
+    &:after {
+      .con("");
+      .absolute;
+      .box(@width, @height);
+      .bgc(@color);
+      .translate>.x(-100%);
+      .transition(transform, @time, 0s, ease-out);
+    }
+    &:hover:after {
+      .translate>.x(0);
+      .transition(transform, @time, 0s, ease-out);
+    }
+  }
+  .left-right (@width: 100%, @height: 100%, @color: @c-line, @time: 1s) {
+    .pos(relative);
+    .of-h;
+    .transition(transform, @time, 0s, ease-out);
+    &:after {
+      .con("");
+      .absolute;
+      .box(@width, @height);
+      .bgc(@color);
+      .translate>.x(100%);
+      .transition(transform, @time, 0s, ease-out);
+    }
+    &:hover:after {
+      .translate>.x(0);
+      .transition(transform, @time, 0s, ease-out);
+    }
+  }
+}

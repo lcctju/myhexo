@@ -1,0 +1,416 @@
+.w (@w) {
+  width: @w;
+}
+.h (@h) {
+  height: @h;
+}
+.minw (@w) {
+  min-width: @w;
+}
+.minh (@h) {
+  min-height: @h;
+}
+.maxw (@w) {
+  max-width: @w;
+}
+.maxh (@h) {
+  max-height: @h;
+}
+.bs (@x: 0, @y: 1px, @b: 6px, @c: @c-shadow, ...) {
+  .prewm(box-shadow, @arguments);
+  .inset (@x: 0, @y: 1px, @b: 6px, @c: @c-shadow) {
+    .bs(@x, @y, @b, @c, inset);
+  }
+}
+.bd (@w: 1px, @c: @c-line, @s: solid) {
+  border: @w @s @c;
+}
+.bdt (@w: 1px, @c: @c-line, @s: solid) {
+  border-top: @w @s @c;
+}
+.bdb (@w: 1px, @c: @c-line, @s: solid) {
+  border-bottom: @w @s @c;
+}
+.bdl (@w: 1px, @c: @c-line, @s: solid) {
+  border-left: @w @s @c;
+}
+.bdr (@w: 1px, @c: @c-line, @s: solid) {
+  border-right: @w @s @c;
+}
+.bdi (...) {
+  .prew(border-image, @arguments);
+}
+.br (...) {
+  .pre(border-radius, @arguments);
+}
+.bsiz (@s) {
+  .prewm(box-sizing, @s);
+}
+.oo (@o) {
+  outline-offset: @o;
+}
+.bref (...) {
+  .prew(box-reflect, @arguments);
+}
+
+.res (@s) {
+  resize: @s;
+}
+
+.f (...) {
+  font: @arguments;
+}
+.fs (@s) {
+  font-size: @s;
+}
+.c (@c) {
+  color: @c;
+}
+.ff (@f) {
+  font-family: @f;
+}
+.ti (@i) {
+  text-indent: @i;
+}
+.ta (@a) {
+  text-align: @a;
+}
+.lh (@h) {
+  line-height: @h;
+}
+.fw (@w) {
+  font-weight: @w;
+}
+.ts (@x: 0, @y: 1px, @b: 4px, @c: @c-shadow) {
+  text-shadow: @x @y @b @c;
+}
+.tstr (@w, @c) {
+  .prew(text-stroke, @w @c);
+}
+.td (@d) {
+  text-decoration: @d;
+}
+.to (@o) {
+  text-overflow: @o;
+}
+.ws (@s) {
+  white-space: @s;
+}
+.fsty (@s) {
+  font-style: @s;
+}
+
+.cc (@c) {
+  .prewm(column-count, @c);
+}
+.cg (@g) {
+  .prewm(column-gap, @g);
+}
+.cr (@w: 1px, @c: @c-line, @s: solid) {
+  .prewm(column-rule, @arguments);
+}
+
+.m (...) {
+  margin: @arguments;
+}
+.mt (@m) {
+  margin-top: @m;
+}
+.mb (@m) {
+  margin-bottom: @m;
+}
+.ml (@m) {
+  margin-left: @m;
+}
+.mr (@m) {
+  margin-right: @m;
+}
+
+.p (...) {
+  padding: @arguments;
+}
+.pt (@p) {
+  padding-top: @p;
+}
+.pb (@p) {
+  padding-bottom: @p;
+}
+.pl (@p) {
+  padding-left: @p;
+}
+.pr (@p) {
+  padding-right: @p;
+}
+
+.d (@d) {
+  display: @d;
+}
+.va (@a) {
+  vertical-align: @a;
+}
+.v (@v) {
+  visibility: @v;
+}
+.of (...) {
+  overflow: @arguments;
+}
+
+// 弹性盒子
+.flex () {
+  display: -webkit-flex;
+  display: flex;
+  .box () {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+.fxd (@value: row) {
+  .prew(flex-direction, @value);
+  .row () {
+    .prewm(box-direction, normal);
+    .prewm(box-orient, horizontal);
+    .prew(flex-direction, row);
+    -ms-flex-direction: normal;
+  }
+  .row-r () {
+    .prewm(box-direction, reverse);
+    .prewm(box-orient, horizontal);
+    .prew(flex-direction, row-reverse);
+    -ms-flex-direction: inherit;
+  }
+  .column () {
+    .prewm(box-direction, normal);
+    .prewm(box-orient, vertical);
+    .prew(flex-direction, column);
+    -ms-flex-direction: normal;
+  }
+  .column-r () {
+    .prewm(box-direction, reverse);
+    .prewm(box-orient, vertical);
+    .prew(flex-direction, column-reverse);
+    -ms-flex-direction: inherit;
+  }
+}
+.fxw (@value: nowrap) {
+  .pre(flex-wrap, @value);
+  .nowrap () {
+    -webkit-box-lines: single;
+    .prew(flex-wrap, nowrap);
+  }
+  .wrap () {
+    -webkit-box-lines: multiple;
+    .prew(flex-wrap, wrap);
+  }
+  .wrap-r () {
+    .prewm(box-direction, reverse);
+    .prewm(box-orient, vertical);
+    -webkit-box-lines: multiple;
+    .prew(flex-wrap, wrap-reverse);
+  }
+}
+.jc (@value: flex-start) {
+  .pre(justify-content, @value);
+  .start () {
+    .prewm(box-pack, start);
+    .prew(justify-content, flex-start);
+    -ms-flex-pack: start;
+  }
+  .end () {
+    .prewm(box-pack, end);
+    .prew(justify-content, flex-end);
+    -ms-flex-pack: end;
+  }
+  .center () {
+    .prewm(box-pack, center);
+    .prew(justify-content, center);
+    -ms-flex-pack: center;
+  }
+  .between () {
+    .prewm(box-pack, justify);
+    .prew(justify-content, space-between);
+    -ms-flex-pack: justify;
+  }
+  .around () {
+    .prewm(box-pack, justify);
+    .prew(justify-content, space-around);
+    -ms-flex-pack: justify;
+  }
+}
+.ai (@value: stretch) {
+  .pre(align-items, @value);
+  .stretch () {
+    .prewm(box-align, stretch);
+    .prewm(align-items, stretch);
+    -ms-flex-align: stretch;
+  }
+  .start () {
+    .prewm(box-align, start);
+    .prewm(align-items,  flex-start);
+    -ms-flex-align: start;
+  }
+  .end () {
+    .prewm(box-align, end);
+    .prewm(align-items,  flex-end);
+    -ms-flex-align: end;
+  }
+  .center () {
+    .prewm(box-align, center);
+    .prewm(align-items, center);
+    -ms-flex-align: center;
+  }
+  .baseline () {
+    .prewm(box-align, baseline);
+    .prewm(align-items, baseline);
+    -ms-flex-align: baseline;
+  }
+}
+.ac (@value: stretch) {
+  .prew(align-content, @value);
+}
+.ord (@ord) {
+  .pre(order, @ord);
+}
+.fxg (@g) {
+  .pre(flex-grow, @g);
+}
+.fxs (@s) {
+  .pre(flex-shrink, @s);
+}
+.fxb (@b) {
+  .pre(flex-basis, @b);
+}
+.fx (...) {
+  .pre(flex, @arguments);
+}
+.as (@s) {
+  .pre(align-self, @s);
+}
+
+.pos (@p) {
+  position: @p;
+}
+.t (@t) {
+  top: @t;
+}
+.b (@b) {
+  bottom: @b;
+}
+.l (@l) {
+  left: @l;
+}
+.r (@r) {
+  right: @r;
+}
+.zi (@i) {
+  z-index: @i;
+}
+
+.bg (...) {
+  background: @arguments;
+}
+.bgc (@c) {
+  background-color: @c;
+}
+.bgi (@i) {
+  background-image: ~"@{i}";
+}
+.bgp (...) {
+  background-position: @arguments;
+}
+.bgs (...) {
+  .pre(background-size, @arguments);
+}
+.bgr (...) {
+  background-repeat: @arguments;
+}
+.bga (@a) {
+  background-attachment: @a;
+}
+.bgo (@o) {
+  background-origin: @o;
+}
+.bgcl (@c) {
+  .prew(background-clip, @c);
+}
+
+.tf (...) {
+  .pre(transform, @arguments);
+}
+.tfo (...) {
+  .pre(transform-origin, @arguments);
+}
+.fil (...) {
+  .prew(filter, @arguments);
+}
+
+.an (...) {
+  .pre(animation, @arguments);
+}
+.ann (@n) {
+  .pre(animation-name, @n);
+}
+.andur (@d) {
+  .pre(animation-duration, @d);
+}
+.andel (@d) {
+  .pre(animation-delay, @d);
+}
+.andir (@d) {
+  .pre(animation-direction, @d);
+}
+.anc (@c) {
+  .pre(animation-iteration-count, @c);
+}
+.antf (@tf) {
+  .pre(animation-timing-function, @tf);
+}
+.ts (...) {
+  .pre(transition, @arguments);
+}
+.tsp (@p: transform) {
+  .pre(transition-property, @p);
+}
+.tsdur (@dur) {
+  .pre(transition-duration, @dur);
+}
+.tsdel (@del) {
+  .pre(transition-delay, @del);
+}
+.tstf (@tf) {
+  .pre(transition-timing-function, @tf);
+}
+
+.op (@p) {
+  filter: ~"alpha(opacity="@p * 100~")";
+  opacity: @p;
+}
+.cur (@r) {
+  cursor: @r;
+}
+.con (@c) {
+  content: @c;
+}
+.us (@s: none) {
+  .prew(user-select, @s);
+}
+
+// 处理前缀
+.pre (@style, @value) {
+  -webkit-@{style}: @value;
+  -moz-@{style}: @value;
+  -ms-@{style}: @value;
+  -o-@{style}: @value;
+  @{style}: @value;
+}
+.prew (@style, @value) {
+  -webkit-@{style}: @value;
+  @{style}: @value;
+}
+.prewm (@style, @value) {
+  -webkit-@{style}: @value;
+  -ms-@{style}: @value;
+  @{style}: @value;
+}

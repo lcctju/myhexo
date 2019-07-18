@@ -1,0 +1,80 @@
+// 字体
+.font (@size: 1rem, @color: @c-text) {
+  .fs(@size);
+  .c(@color);
+  .indent (@indent) {
+    .ti(@indent);
+  }
+  .indent (@indent, @size, @color: @c-text) {
+    .font(@size, @color);
+    .ti(@indent);
+  }
+  .height (@height) {
+    .lh(@height);
+  }
+  .height (@height, @size, @color: @c-text) {
+    .font(@size, @color);
+    .lh(@height);
+  }
+  .weight (@weight: normal) {
+    .fw(@weight);
+  }
+  .weight (@weight, @size, @color: @c-text) {
+    .font(@size, @color);
+    .fw(@weight);
+  }
+  .shadow (@x: 0, @y: 1px, @b: 4px, @shadow-color: @c-shadow) {
+    .ts(@x, @y, @b, @shadow-color);
+  }
+  .shadow (@x, @y, @b, @shadow-color: @c-shadow, @size, @color: @c-text) {
+    .font(@size, @color);
+    .ts(@x, @y, @b, @shadow-color);
+  }
+  .stroke (@stroke-weight, @stroke-color, @weight) {
+    .fw(@weight);
+    .tso(@stroke-weight, @stroke-color);
+  }
+  .stroke (@stroke-weight, @stroke-color, @weight, @size, @color: @c-text) {
+    .font(@size, @color);
+    .fw(@weight);
+    .tso(@stroke-weight, @stroke-color);
+  }
+  .style (@style: italic) {
+    font-style: @style;
+  }
+  .style (@style, @size, @color: @c-text) {
+    .font(@size, @color);
+    font-style: @style;
+  }
+}
+.font (@size, @color, @family) {
+  .fs(@size);
+  .c(@color);
+  .ff(@family);
+}
+.font-cc (@lh) {
+  .ta(center);
+  .lh(@lh);
+}
+// 文本隐藏
+.font-hidden () {
+  .wrap (@n) {
+    .d(-webkit-box);
+    -webkit-line-clamp: @n;
+    -webkit-box-orient: vertical;
+    .of-h;
+    .to(ellipsis);
+    .ws(normal);
+  }
+  .nowrap () {
+    .of-h;
+    .to(ellipsis);
+    .ws(nowrap);
+  }
+}
+// 文本分列
+.font-column (@count, @gap, @width: 1px, @color: @c-line, @style: solid) {
+  .cc(@count);
+  .cg(@gap);
+  .cr(@width, @color, @style);
+}

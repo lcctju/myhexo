@@ -1,0 +1,47 @@
+// 箭头
+.arrow () {
+  .top(@width: 5px, @color: @c-line) {
+    .box(0, 0);
+    .bdl(@width, @c-t);
+    .bdr(@width, @c-t);
+    .bdb(@width, @color);
+  }
+  .bottom(@width: 5px, @color: @c-line) {
+    .box(0, 0);
+    .bdl(@width, @c-t);
+    .bdr(@width, @c-t);
+    .bdt(@width, @color);
+  }
+  .left(@width: 5px, @color: @c-line) {
+    .box(0, 0);
+    .bdt(@width, @c-t);
+    .bdb(@width, @c-t);
+    .bdr(@width, @color);
+  }
+  .right(@width: 5px, @color: @c-line) {
+    .box(0, 0);
+    .bdt(@width, @c-t);
+    .bdb(@width, @c-t);
+    .bdl(@width, @color);
+  }
+  .top-left(@width: 5px, @color: @c-line) {
+    .box(0, 0);
+    .bdb(@width, @c-t);
+    .bdl(@width, @color);
+  }
+  .top-right(@width: 5px, @color: @c-line) {
+    .box(0, 0);
+    .bdb(@width, @c-t);
+    .bdr(@width, @color);
+  }
+  .bottom-left(@width: 5px, @color: @c-line) {
+    .box(0, 0);
+    .bdt(@width, @c-t);
+    .bdl(@width, @color);
+  }
+  .bottom-right(@width: 5px, @color: @c-line) {
+    .box(0, 0);
+    .bdt(@width, @c-t);
+    .bdr(@width, @color);
+  }
+}

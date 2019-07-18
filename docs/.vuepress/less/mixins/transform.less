@@ -1,0 +1,66 @@
+// transform
+// 矩阵
+.matrix (@a1: 0, @a2: 0, @a3: 0, @a4: 0, @a5: 0, @a6: 0) {
+  .tf(matrix(@a1, @a2, @a3, @a4, @a5, @a6));
+  .matrix3d (@a1: 0,@a2: 0,@a3: 0,@a4: 0,@a5: 0,@a6: 0,@a7: 0,@a8: 0,@a9: 0,@a10: 0,@a11: 0,@a12: 0,@a13: 0,@a14: 0,@a15: 0,@a16: 0) {
+    .tf(matrix3d(@a1, @a2, @a3, @a4, @a5, @a6, @a7, @a8, @a9, @a10, @a11, @a12, @a13, @a14, @a15, @a16))
+  }
+}
+// 平移
+.translate (@x: 0, @y: 0) {
+  .tf(translate(@x, @y));
+  .x (@x: 0) {
+    .tf(translateX(@x));
+  }
+  .y (@y: 0) {
+    .tf(translateY(@y));
+  }
+  .z (@z: 0) {
+    .tf(translateZ(@z));
+  }
+  .translate3d (@x: 0, @y: 0, @z: 0) {
+    .tf(translate3d(@x, @y, @z));
+  }
+}
+// 缩放
+.scale (@x: 0, @y: 0) {
+  .tf(scale(@x, @y));
+  .x (@x: 0) {
+    .tf(scaleX(@x));
+  }
+  .y (@y: 0) {
+    .tf(scaleY(@y));
+  }
+  .z (@z: 0) {
+    .tf(scaleZ(@z));
+  }
+  .scale3d (@x: 0, @y: 0, @z: 0) {
+    .tf(scale3d(@x, @y, @z));
+  }
+}
+// 旋转
+.rotate (@rotate: 0deg) {
+  .tf(rotate(@rotate));
+  .x (@x: 0) {
+    .tf(rotateX(@x));
+  }
+  .y (@y: 0) {
+    .tf(rotateY(@y));
+  }
+  .z (@z: 0) {
+    .tf(rotateZ(@z));
+  }
+  .rotate3d (@x: 0, @y: 0, @z: 0, @rotate: 0deg) {
+    .tf(rotate3d(@x, @y, @z, @rotate));
+  }
+}
+// 倾斜
+.skew (@x: 0deg, @y: 0deg) {
+  .tf(skew(@x, @y));
+  .x (@x: 0deg) {
+    .tf(skewX(@x));
+  }
+  .y (@y: 0deg) {
+    .tf(skewY(@y));
+  }
+}

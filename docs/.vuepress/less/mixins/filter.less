@@ -1,0 +1,44 @@
+// 滤镜
+.filter (...) {
+  .fil(@arguments);
+}
+// 高斯模糊
+.blur (@blur) {
+  .fil(blur(@blur));
+}
+// 灰度
+.grayscale (@grayscale) {
+  .fil(grayscale(@grayscale));
+}
+// 褐色
+.sepia (@sepia) {
+  .fil(sepia(@sepia));
+}
+// 饱和度
+.saturate (@saturate) {
+  .fil(saturate(@saturate));
+}
+// 色相旋转
+.hue-rotate (@hue-rotate) {
+  .fil(hue-rotate(@hue-rotate));
+}
+// 反色
+.invert (@invert) {
+  .fil(invert(@invert));
+}
+// 透明度
+.opacity (@opacity) {
+  .fil(opacity(@opacity));
+}
+// 亮度
+.brightness (@brightness) {
+  .fil(brightness(@brightness));
+}
+// 对比度
+.contrast (@contrast) {
+  .fil(contrast(@contrast));
+}
+// 阴影
+.drop-shadow (@x, @y, @b, @color: @c-shadow) {
+  .fil(drop-shadow(@x, @y, @b, @color));
+}

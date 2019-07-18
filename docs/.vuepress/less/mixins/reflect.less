@@ -1,0 +1,22 @@
+// 镜像效果
+.reflect (@l: 0px, @opacity: 0.3, @length: 70%){
+  .bref(below @l linear-gradient(0deg, rgba(250, 250, 250, @opacity),rgba(250, 250, 250, 0) @length,rgba(250, 250, 250, 0)));
+  .above (@l: 0px, @opacity: 0.3, @length: 70%) {
+    .bref(above @l linear-gradient(180deg, rgba(250, 250, 250, @opacity),rgba(250, 250, 250, 0) @length,rgba(250, 250, 250, 0)));
+  }
+  .top (@l: 0px, @opacity: 0.3, @length: 70%) {
+    .reflect>.above(@l, @opacity, @length);
+  }
+  .below (@l: 0px, @opacity: 0.3, @length: 70%) {
+    .bref(below @l linear-gradient(0deg, rgba(250, 250, 250, @opacity),rgba(250, 250, 250, 0) @length,rgba(250, 250, 250, 0)));
+  }
+  .bottom (@l: 0px, @opacity: 0.3, @length: 70%) {
+    .reflect>.below(@l, @opacity, @length);
+  }
+  .left (@l: 0px, @opacity: 0.3, @length: 70%) {
+    .bref(left @l linear-gradient(90deg, rgba(250, 250, 250, @opacity),rgba(250, 250, 250, 0) @length,rgba(250, 250, 250, 0)));
+  }
+  .right (@l: 0px, @opacity: 0.3, @length: 70%) {
+    .bref(right @l linear-gradient(270deg, rgba(250, 250, 250, @opacity),rgba(250, 250, 250, 0) @length,rgba(250, 250, 250, 0)));
+  }
+}

@@ -1,0 +1,317 @@
+.w (@w) {
+  width: @w;
+}
+.h (@h) {
+  height: @h;
+}
+.minw (@w) {
+  min-width: @w;
+}
+.minh (@h) {
+  min-height: @h;
+}
+.maxw (@w) {
+  max-width: @w;
+}
+.maxh (@h) {
+  max-height: @h;
+}
+.bs (@x: 0, @y: 1px, @b: 6px, @c: @c-shadow, ...) {
+  box-shadow: @arguments;
+  .inset (@x: 0, @y: 1px, @b: 6px, @c: @c-shadow) {
+    .bs(@x, @y, @b, @c, inset);
+  }
+}
+.bd (@w: 1px, @c: @c-line, @s: solid) {
+  border: @w @s @c;
+}
+.bdt (@w: 1px, @c: @c-line, @s: solid) {
+  border-top: @w @s @c;
+}
+.bdb (@w: 1px, @c: @c-line, @s: solid) {
+  border-bottom: @w @s @c;
+}
+.bdl (@w: 1px, @c: @c-line, @s: solid) {
+  border-left: @w @s @c;
+}
+.bdr (@w: 1px, @c: @c-line, @s: solid) {
+  border-right: @w @s @c;
+}
+.bdi (...) {
+  border-image: @arguments;
+}
+.br (...) {
+  border-radius: @arguments;
+}
+.bsiz (@s) {
+  box-sizing: @s;
+}
+.oo (@o) {
+  outline-offset: @o;
+}
+.bref (...) {
+  .prew(box-reflect, @arguments);
+}
+
+.res (@s) {
+  resize: @s;
+}
+
+.f (...) {
+  font: @arguments;
+}
+.fs (@s) {
+  font-size: @s;
+}
+.c (@c) {
+  color: @c;
+}
+.ff (@f) {
+  font-family: @f;
+}
+.ti (@i) {
+  text-indent: @i;
+}
+.ta (@a) {
+  text-align: @a;
+}
+.lh (@h) {
+  line-height: @h;
+}
+.fw (@w) {
+  font-weight: @w;
+}
+.ts (@x: 0, @y: 1px, @b: 4px, @c: @c-shadow) {
+  text-shadow: @x @y @b @c;
+}
+.tstr (@w, @c) {
+  .prew(text-stroke, @w @c);
+}
+.td (@d) {
+  text-decoration: @d;
+}
+.to (@o) {
+  text-overflow: @o;
+}
+.ws (@s) {
+  white-space: @s;
+}
+.fsty (@s) {
+  font-style: @s;
+}
+
+.cc (@c) {
+  column-count: @c;
+}
+.cg (@g) {
+  column-gap: @g;
+}
+.cr (@w: 1px, @c: @c-line, @s: solid) {
+  column-rule: @arguments;
+}
+
+.m (...) {
+  margin: @arguments;
+}
+.mt (@m) {
+  margin-top: @m;
+}
+.mb (@m) {
+  margin-bottom: @m;
+}
+.ml (@m) {
+  margin-left: @m;
+}
+.mr (@m) {
+  margin-right: @m;
+}
+
+.p (...) {
+  padding: @arguments;
+}
+.pt (@p) {
+  padding-top: @p;
+}
+.pb (@p) {
+  padding-bottom: @p;
+}
+.pl (@p) {
+  padding-left: @p;
+}
+.pr (@p) {
+  padding-right: @p;
+}
+
+.d (@d) {
+  display: @d;
+}
+.va (@a) {
+  vertical-align: @a;
+}
+.v (@v) {
+  visibility: @v;
+}
+.of (...) {
+  overflow: @arguments;
+}
+
+.fxd (@d) {
+  flex-direction: @d;
+}
+.fxw (@w) {
+  flex-wrap: @w;
+}
+.fxf (@f) {
+  flex-flow: @f;
+}
+.jc (@c) {
+  justify-content: @c;
+}
+.ai (@i) {
+  align-items: @i;
+}
+.ac (@c) {
+  align-content: @c;
+}
+.ord (@ord) {
+  order: @ord;
+}
+.fxg (@g) {
+  flex-grow: @g;
+}
+.fxs (@s) {
+  flex-shrink: @s;
+}
+.fxb (@b) {
+  flex-basis: @b;
+}
+.fx (...) {
+  flex: @arguments;
+}
+.as (@s) {
+  align-self: @s;
+}
+
+.pos (@p) {
+  position: @p;
+}
+.t (@t) {
+  top: @t;
+}
+.b (@b) {
+  bottom: @b;
+}
+.l (@l) {
+  left: @l;
+}
+.r (@r) {
+  right: @r;
+}
+.zi (@i) {
+  z-index: @i;
+}
+
+.bg (...) {
+  background: @arguments;
+}
+.bgc (@c) {
+  background-color: @c;
+}
+.bgi (@i) {
+  background-image: ~"@{i}";
+}
+.bgp (...) {
+  background-position: @arguments;
+}
+.bgs (...) {
+  background-size: @arguments;
+}
+.bgr (...) {
+  background-repeat: @arguments;
+}
+.bga (@a) {
+  background-attachment: @a;
+}
+.bgo (@o) {
+  background-origin: @o;
+}
+.bgcl (@c) {
+  .prew(background-clip, @c);
+}
+
+.tf (...) {
+  transform: @arguments;
+}
+.tfo (...) {
+  transform-origin: @arguments;
+}
+.fil (...) {
+  .prew(filter, @arguments);
+}
+
+.an (...) {
+  animation: @arguments;
+}
+.ann (@n) {
+  animation-name: @n;
+}
+.andur (@d) {
+  animation-duration: @d;
+}
+.andel (@d) {
+  animation-delay: @d;
+}
+.andir (@d) {
+  animation-direction: @d;
+}
+.anc (@c) {
+  animation-iteration-count: @c;
+}
+.antf (@tf) {
+  animation-timing-function: @tf;
+}
+.ts (...) {
+  transition: @arguments;
+}
+.tsp (@p: transform) {
+  transition-property: @p;
+}
+.tsdur (@dur) {
+  transition-duration: @dur;
+}
+.tsdel (@del) {
+  transition-delay: @del;
+}
+.tstf (@tf) {
+  transition-timing-function: @tf;
+}
+
+.op (@p) {
+  opacity: @p;
+}
+.cur (@r) {
+  cursor: @r;
+}
+.con (@c) {
+  content: @c;
+}
+.us (@s: none) {
+  .prew(user-select, @s);
+}
+
+// 处理前缀
+.pre (@style, @value) {
+  -webkit-@{style}: @value;
+  -moz-@{style}: @value;
+  -ms-@{style}: @value;
+  -o-@{style}: @value;
+  @{style}: @value;
+}
+.prew (@style, @value) {
+  -webkit-@{style}: @value;
+  @{style}: @value;
+}
+.prewm (@style, @value) {
+  -webkit-@{style}: @value;
+  -ms-@{style}: @value;
+}

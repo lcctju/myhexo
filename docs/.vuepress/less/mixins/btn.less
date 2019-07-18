@@ -1,0 +1,32 @@
+// 按钮
+.btn (@w, @h: @w, @r: 0, @c: @c-btn, @time: 1s, @d: 5%, @l: 70%) {
+  .pos-r;
+  .of-h;
+  .box>.radius(@r, @w, @h);
+  .bgc(@c);
+  .font-cc(@h);
+  .cur-p;
+  .transition(all, @time, 0s, ease-in-out);
+  &:after {
+    .con("");
+    .absolute;
+    .d-b;
+    .box>.radius(@r, 100%, @h);
+    .bg-radial(circle, lighten(@c, @l) 10%, @c-t 11%);
+    .bgr(no-repeat);
+    .bgp(50%);
+    .op(0);
+    .scale(10, 10);
+    pointer-events: none;
+    .transition(all, @time, 0s, ease-out);
+  }
+  &:hover {
+    .bgc(darken(@c, @d));
+    .transition(all, @time, 0s, ease-in-out);
+  }
+  &:active:after {
+    .op(0.4);
+    .scale;
+    .transition(all, 0s, 0s, ease-out);
+  }
+}

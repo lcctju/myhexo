@@ -1,0 +1,43 @@
+// 背景
+.bg-img (@url, @s: 100%, @p: center, @r: no-repeat) {
+  .bgi(url(@url));
+  .bgs(@s);
+  .bgp(@p);
+  .bgr(@r);
+}
+.bg-sprite (@url, @p, @r: no-repeat) {
+  .bgi(url(@url));
+  .bgs(auto);
+  .bgp(@p);
+  .bgr(@r);
+}
+.bg-line (@r, @s-c: @c-black, @e-c: fade(@s-c, 0%)) {
+  .bgi(linear-gradient(@r, @s-c, @e-c));
+}
+.bg-line (@r, @s-c, @c2, @e-c) {
+  .bgi(linear-gradient(@r, @s-c, @c2, @e-c));
+}
+.bg-line (@r, @s-c, @c2, @c3, @e-c) {
+  .bgi(linear-gradient(@r, @s-c, @c2, @c3, @e-c));
+}
+.bg-line (@r, @s-c, @c2, @c3, @c4, @e-c) {
+  .bgi(linear-gradient(@r, @s-c, @c2, @c3, @c4, @e-c));
+}
+.bg-line-rainbow (@r: 90deg) {
+  .bgi(linear-gradient(@r, #E50743 0%, #F9870F 15%, #E8ED30 30%, #3FA62E 45%, #3BB4D7 60%, #2F4D9E 75%, #71378A 80%));
+}
+.bg-radial (@r, @s-c: @c-black, @e-c: fade(@s-c, 0%)) {
+  .bgi(radial-gradient(@r, @s-c, @e-c));
+}
+.bg-radial (@r, @s-c, @c2, @e-c) {
+  .bgi(radial-gradient(@r, @s-c, @c2, @e-c));
+}
+.bg-radial (@r, @s-c, @c2, @c3, @e-c) {
+  .bgi(radial-gradient(@r, @s-c, @c2, @c3, @e-c));
+}
+.bg-radial (@r, @s-c, @c2, @c3, @c4, @e-c) {
+  .bgi(radial-gradient(@r, @s-c, @c2, @c3, @c4, @e-c));
+}
+.bg-radial-rainbow (@r: circle) {
+  .bgi(radial-gradient(@r, #E50743 0%, #F9870F 15%, #E8ED30 30%, #3FA62E 45%, #3BB4D7 60%, #2F4D9E 75%, #71378A 80%));
+}

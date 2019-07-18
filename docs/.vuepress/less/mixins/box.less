@@ -1,0 +1,72 @@
+// 尺寸
+.box (@width: auto, @height: auto) {
+  .w(@width);
+  .h(@height);
+  .min (@width: auto, @height: auto) {
+    .minw(@width);
+    .minh(@height);
+  }
+  .min (@width, @height, @bwidth, @bheight: auto) {
+    .box(@bwidth, @bheight);
+    .minw(@width);
+    .minh(@height);
+  }
+  .max (@width: auto, @height: none) {
+    .maxw(@width);
+    .maxh(@height);
+  }
+  .max (@width, @height, @bwidth, @bheight: auto) {
+    .box(@bwidth, @bheight);
+    .maxw(@width);
+    .maxh(@height);
+  }
+  .shadow (@x: 0, @y: 1px, @b: 6px, @color: @c-shadow) {
+    .bs(@x, @y, @b, @color);
+  }
+  .shadow (@x, @y, @b, @color, @width, @height: auto) {
+    .box(@width, @height);
+    .bs(@x, @y, @b, @color);
+  }
+  .border (@weight: 1px, @color: @c-line, @style: solid) {
+    .bd(@weight, @style, @color);
+    .top (@weight: 1px, @color: @c-line, @style: solid) {
+      .bdt(@weight, @style, @color);
+    }
+    .bottom (@weight: 1px, @color: @c-line, @style: solid) {
+      .bdb(@weight, @style, @color);
+    }
+    .left (@weight: 1px, @color: @c-line, @style: solid) {
+      .bdl(@weight, @style, @color);
+    }
+    .right (@weight: 1px, @color: @c-line, @style: solid) {
+      .bdr(@weight, @style, @color);
+    }
+  }
+  .border (@weight, @color, @style, @width, @height: auto) {
+    .box(@width, @height);
+    .bd(@weight, @style, @color);
+    .top (@weight, @color, @style, @width, @height: auto) {
+      .box(@width, @height);
+      .bdt(@weight, @style, @color);
+    }
+    .bottom (@weight, @color, @style, @width, @height: auto) {
+      .box(@width, @height);
+      .bdb(@weight, @style, @color);
+    }
+    .left (@weight, @color, @style, @width, @height: auto) {
+      .box(@width, @height);
+      .bdl(@weight, @style, @color);
+    }
+    .right (@weight, @color, @style, @width, @height: auto) {
+      .box(@width, @height);
+      .bdr(@weight, @style, @color);
+    }
+  }
+  .radius (@radius) {
+    .br(@radius);
+  }
+  .radius (@radius, @width, @height: @width) {
+    .box(@width, @height);
+    .br(@radius);
+  }
+}
