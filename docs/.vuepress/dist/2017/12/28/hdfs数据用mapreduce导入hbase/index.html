@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>HDFS数据用MapReduce导入Hbase</title>
+    <meta name="description" content="使用MapReduce框架将HDFS上的数据导入Hbase示例代码">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.6278cda6.css" as="style"><link rel="preload" href="/assets/js/app.49c8d00f.js" as="script"><link rel="preload" href="/assets/js/11.a2c3fa03.js" as="script"><link rel="prefetch" href="/assets/js/10.c6d02722.js"><link rel="prefetch" href="/assets/js/12.835a95df.js"><link rel="prefetch" href="/assets/js/13.59bff5ab.js"><link rel="prefetch" href="/assets/js/14.f49df33e.js"><link rel="prefetch" href="/assets/js/15.a9755114.js"><link rel="prefetch" href="/assets/js/16.c12aeceb.js"><link rel="prefetch" href="/assets/js/17.eac59e73.js"><link rel="prefetch" href="/assets/js/18.81cdfb3d.js"><link rel="prefetch" href="/assets/js/19.2d7e3beb.js"><link rel="prefetch" href="/assets/js/2.8ce52297.js"><link rel="prefetch" href="/assets/js/20.75286fd8.js"><link rel="prefetch" href="/assets/js/21.70fa38fd.js"><link rel="prefetch" href="/assets/js/3.fa1d3b6a.js"><link rel="prefetch" href="/assets/js/4.83cc12c6.js"><link rel="prefetch" href="/assets/js/5.14477e4e.js"><link rel="prefetch" href="/assets/js/6.2705424e.js"><link rel="prefetch" href="/assets/js/7.adaa1840.js"><link rel="prefetch" href="/assets/js/8.ccb3c3b8.js"><link rel="prefetch" href="/assets/js/9.99ac785a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6278cda6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><section id="global-layout" data-v-671cfc84><header class="header" data-v-02db179a data-v-671cfc84><div class="header-navbar" data-v-02db179a><div class="flex-xbc main header-nav" data-v-02db179a><div class="nav-link" data-v-02db179a><a href="/" class="inblock link-logo router-link-active" data-v-02db179a></a> <nav class="link-list" data-v-02db179a><a href="/" class="list-item router-link-active" data-v-02db179a>Home</a><a href="/posts/" class="list-item" data-v-02db179a>Blog</a><a href="/about/" class="list-item" data-v-02db179a>About</a><a href="/category/" class="list-item" data-v-02db179a>Category</a><a href="/tag/" class="list-item" data-v-02db179a>Tag</a></nav></div> <div class="search-box" data-v-02db179a><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div></div></div> </header> <!----> <section class="page" data-v-671cfc84><section class="info" style="background-image:url(/images/2.jpg);" data-v-c8515940><article class="main info-content" data-v-1c19f939 data-v-c8515940><div class="content-header" data-v-1c19f939><h1 class="header-title" data-v-1c19f939>HDFS数据用MapReduce导入Hbase</h1></div> <!----> <div class="content content__default" data-v-1c19f939><p>#对应代码如下</p> <div class="language-java extra-class"><pre class="language-java"><code>
+
+<span class="token keyword">package</span> hbase<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>conf</span><span class="token punctuation">.</span><span class="token class-name">Configuration</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>fs</span><span class="token punctuation">.</span><span class="token class-name">Path</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hbase</span><span class="token punctuation">.</span><span class="token class-name">HBaseConfiguration</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hbase<span class="token punctuation">.</span>client</span><span class="token punctuation">.</span><span class="token class-name">Put</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hbase<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span><span class="token class-name">ImmutableBytesWritable</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hbase<span class="token punctuation">.</span>mapreduce</span><span class="token punctuation">.</span><span class="token class-name">TableMapReduceUtil</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>hbase<span class="token punctuation">.</span>util</span><span class="token punctuation">.</span><span class="token class-name">Bytes</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>io</span><span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce</span><span class="token punctuation">.</span><span class="token class-name">Job</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce</span><span class="token punctuation">.</span><span class="token class-name">Mapper</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce<span class="token punctuation">.</span>lib<span class="token punctuation">.</span>input</span><span class="token punctuation">.</span><span class="token class-name">FileInputFormat</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>hadoop<span class="token punctuation">.</span>mapreduce<span class="token punctuation">.</span>lib<span class="token punctuation">.</span>input</span><span class="token punctuation">.</span><span class="token class-name">SequenceFileInputFormat</span><span class="token punctuation">;</span>
+</code></pre></div> <div class="language- extra-class"><pre class="language-text"><code>import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * Created by lcc on 2017/10/26.
+ */
+public class FromWeibo {
+
+    public static class ToHbaseMap extends Mapper&lt;BytesWritable, MapWritable, ImmutableBytesWritable, Put&gt;{
+        protected Date getPostDate(String down, String s){
+            Date postdate=null;
+            DateFormat downdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);
+            try {
+                Date downd = downdf.parse(down);
+                String reg = &quot;&lt;p class=\&quot;release_date\&quot;&gt;(.*?)&lt;/p&gt;&quot;;
+                Pattern pattern = Pattern.compile(reg);
+
+                Matcher matcher = pattern.matcher(s);
+                DateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);
+                DateFormat df2 = new SimpleDateFormat(&quot;MM月dd日 HH:mm&quot;);
+                if (matcher.find()) {
+                    String out = matcher.group(1);
+                    out = out.trim();
+                    if (!out.equals(&quot;&quot;)) {
+                        try {
+                            postdate = df.parse(out);
+                        } catch (Exception e) {
+                            try {
+                                postdate = df2.parse(out);
+                                postdate.setYear(117);
+                            } catch (Exception e2) {
+                                String reg2 = &quot;[1-9]\\d*&quot;;
+                                Pattern pattern2 = Pattern.compile(reg2);
+                                Matcher matcher2 = pattern2.matcher(out.trim());
+                                if (matcher2.find()) {
+                                    int m = Integer.parseInt(matcher2.group());
+                                    postdate=new Date(downd.getTime()-m*60*1000);
+                                } else {
+                                    postdate=downd;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) {
+
+            }
+            return postdate;
+        }
+        protected String getPostContent(String s) {
+            String content = &quot;&quot;;
+            String reg = &quot;&lt;p class=\&quot;content\&quot;&gt;(.*?)&lt;/p&gt;&quot;;
+            Pattern pattern = Pattern.compile(reg);
+            Matcher matcher = pattern.matcher(s);
+            if (matcher.find()) {
+                content = matcher.group(1);
+            }
+            return content;
+        }
+        protected Date getRepostDate(String s){
+            Date d=null;
+            DateFormat df = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);
+            try{
+                d=df.parse(s);
+            }catch (Exception e) {
+
+            }
+            return d;
+        }
+        protected void map(BytesWritable key, MapWritable value, Context context) throws IOException,InterruptedException{
+            Set&lt;Writable&gt; vs = value.keySet();
+            Iterator&lt;Writable&gt; it = vs.iterator();
+            int i = 0;
+            List&lt;String&gt; outkey=new LinkedList&lt;String&gt;();
+            List&lt;String&gt; outvalue=new LinkedList&lt;String&gt;();
+            while (it.hasNext()) {
+                Writable wt=it.next();
+                outkey.add(wt.toString());
+                Writable wvalue=value.get(wt);
+                outvalue.add(wvalue.toString());
+            }
+
+
+            try {
+                if (outvalue.get(outkey.indexOf(&quot;type&quot;)).equals(&quot;q&quot;)) {
+                    String down = outvalue.get(outkey.indexOf(&quot;download_date&quot;));
+                    String s = outvalue.get(outkey.indexOf(&quot;format_content&quot;));
+
+                    //被转发用户相关
+                    String forward_user_url = outvalue.get(outkey.indexOf(&quot;forward_user_url&quot;));
+                    String forward_author = outvalue.get(outkey.indexOf(&quot;forward_author&quot;));
+                    String forward_uid = outvalue.get(outkey.indexOf(&quot;forward_uid&quot;));
+                    String verified = outvalue.get(outkey.indexOf(&quot;verified&quot;));
+
+                    //被转发微博相关
+                    String refer_url = outvalue.get(outkey.indexOf(&quot;refer_url&quot;));
+                    String post_source = outvalue.get(outkey.indexOf(&quot;post_source&quot;));
+                    String forward_url = outvalue.get(outkey.indexOf(&quot;forward_url&quot;));
+                    Date postdate = getPostDate(down, s);
+                    String Post = getPostContent(s);
+
+                    //转发微博信息
+                    Date release_date = getRepostDate(outvalue.get(outkey.indexOf(&quot;release_date&quot;)));
+                    String title = outvalue.get(outkey.indexOf(&quot;title&quot;));
+                    String content = outvalue.get(outkey.indexOf(&quot;content&quot;));
+                    String comments_count = outvalue.get(outkey.indexOf(&quot;comments_count&quot;));
+                    String url = outvalue.get(outkey.indexOf(&quot;url&quot;));
+                    String attitudes_count = outvalue.get(outkey.indexOf(&quot;attitudes_count&quot;));
+                    String quote_count = outvalue.get(outkey.indexOf(&quot;quote_count&quot;));
+
+                    //发表者相关信息
+                    String author = outvalue.get(outkey.indexOf(&quot;author&quot;));
+                    String user_url = outvalue.get(outkey.indexOf(&quot;user_url&quot;));
+                    String uid = outvalue.get(outkey.indexOf(&quot;uid&quot;));
+
+                    //媒体来源
+                    String media_id = outvalue.get(outkey.indexOf(&quot;media_id&quot;));
+                    String media_name = outvalue.get(outkey.indexOf(&quot;media_name&quot;));
+
+                    //入库
+                    if (postdate != null &amp;&amp; release_date != null) {
+                        DateFormat outdf = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);
+                        byte[] bRowKey = Bytes.toBytes(url);
+                        ImmutableBytesWritable rowkey = new ImmutableBytesWritable(bRowKey);
+                        Put put = new Put(bRowKey);
+
+
+                        //&quot;forward_user&quot;列族
+                        put.addImmutable(&quot;forward_user&quot;.getBytes(), &quot;forward_user_url&quot;.getBytes(), forward_user_url.getBytes());
+                        put.addImmutable(&quot;forward_user&quot;.getBytes(), &quot;forward_author&quot;.getBytes(), forward_author.getBytes());
+                        put.addImmutable(&quot;forward_user&quot;.getBytes(), &quot;forward_uid&quot;.getBytes(), forward_uid.getBytes());
+                        put.addImmutable(&quot;forward_user&quot;.getBytes(), &quot;verified&quot;.getBytes(), verified.getBytes());
+
+                        //&quot;forward_weibo&quot;列族
+                        put.addImmutable(&quot;forward_weibo&quot;.getBytes(), &quot;refer_url&quot;.getBytes(), refer_url.getBytes());
+                        put.addImmutable(&quot;forward_weibo&quot;.getBytes(), &quot;post_source&quot;.getBytes(), post_source.getBytes());
+                        put.addImmutable(&quot;forward_weibo&quot;.getBytes(), &quot;forward_url&quot;.getBytes(), forward_url.getBytes());
+                        put.addImmutable(&quot;forward_weibo&quot;.getBytes(), &quot;postdate&quot;.getBytes(), outdf.format(postdate).getBytes());
+                        put.addImmutable(&quot;forward_weibo&quot;.getBytes(), &quot;Post&quot;.getBytes(), Post.getBytes());
+
+
+                        //&quot;post&quot;列族
+                        put.addImmutable(&quot;post&quot;.getBytes(), &quot;release_date&quot;.getBytes(), outdf.format(release_date).getBytes());
+                        put.addImmutable(&quot;post&quot;.getBytes(), &quot;title&quot;.getBytes(), title.getBytes());
+                        put.addImmutable(&quot;post&quot;.getBytes(), &quot;content&quot;.getBytes(), content.getBytes());
+                        put.addImmutable(&quot;post&quot;.getBytes(), &quot;comments_count&quot;.getBytes(), comments_count.getBytes());
+                        put.addImmutable(&quot;post&quot;.getBytes(), &quot;url&quot;.getBytes(), url.getBytes());
+                        put.addImmutable(&quot;post&quot;.getBytes(), &quot;attitudes_count&quot;.getBytes(), attitudes_count.getBytes());
+                        put.addImmutable(&quot;post&quot;.getBytes(), &quot;quote_count&quot;.getBytes(), quote_count.getBytes());
+
+
+                        //&quot;poster&quot;列族
+                        put.addImmutable(&quot;poster&quot;.getBytes(), &quot;author&quot;.getBytes(), author.getBytes());
+                        put.addImmutable(&quot;poster&quot;.getBytes(), &quot;user_url&quot;.getBytes(), user_url.getBytes());
+                        put.addImmutable(&quot;poster&quot;.getBytes(), &quot;uid&quot;.getBytes(), uid.getBytes());
+
+
+                        //&quot;media&quot;列族
+                        put.addImmutable(&quot;media&quot;.getBytes(), &quot;media_id&quot;.getBytes(), media_id.getBytes());
+                        put.addImmutable(&quot;media&quot;.getBytes(), &quot;media_name&quot;.getBytes(), media_name.getBytes());
+
+                        context.write(rowkey, put);
+                    }
+                }
+            }catch (Exception ex)
+            {
+
+            }
+
+        }
+    }
+    public static void main(String[] args) throws Exception {
+        System.setProperty(&quot;hadoop.home.dir&quot;,&quot;C:\\hadoop&quot; );
+        Configuration conf = HBaseConfiguration.create();
+        conf.set(&quot;hbase.zookeeper.quorum&quot;, &quot;TjuBD&quot;);
+        conf.set(&quot;hbase.zookeeper.property.clientPort&quot;, &quot;2181&quot;);
+        conf.set(&quot;dfs.socket.timeout&quot;, &quot;180000&quot;);
+        Path seqFile = new Path(&quot;hdfs://172.28.9.62:8020/weibo/201701&quot;);
+        conf.set(&quot;io.compression.codecs&quot;, &quot;com.hadoop.compression.lzo.LzoCodec&quot;);
+        conf.set(&quot;fs.default.name&quot;, &quot;hdfs://172.28.9.62:8020&quot;);
+        conf.set(&quot;mapreduce.input.fileinputformat.input.dir.recursive&quot;, &quot;True&quot;);
+        conf.set(&quot;hadoop.job.user&quot;, &quot;hadoop&quot;);
+        conf.set(&quot;mapreduce.framework.name&quot;, &quot;yarn&quot;);
+        conf.set(&quot;mapreduce.jobtracker.address&quot;, &quot;172.28.9.62:9001&quot;);
+        conf.set(&quot;yarn.resourcemanager.hostname&quot;, &quot;172.28.9.62&quot;);
+        conf.set(&quot;yarn.resourcemanager.admin.address&quot;, &quot;172.28.9.62:8033&quot;);
+        conf.set(&quot;yarn.resourcemanager.address&quot;, &quot;172.28.9.62:8032&quot;);
+        conf.set(&quot;mapreduce.job.jar&quot;, &quot;C:\\Users\\lcc\\Desktop\\readfile\\target\\readfile-1.0-SNAPSHOT-jar-with-dependencies.jar&quot;);
+        conf.set(&quot;yarn.resourcemanager.resource-tracker.address&quot;, &quot;172.28.9.62:8036&quot;);
+        conf.set(&quot;mapreduce.app-submission.cross-platform&quot;, &quot;true&quot;);
+        conf.set(&quot;yarn.resourcemanager.scheduler.address&quot;, &quot;172.28.9.62:8030&quot;);
+        Job job = Job.getInstance(conf, &quot;FromWeiboToHbase&quot;);
+        job.setJarByClass(FromWeibo.class);
+        job.setInputFormatClass(SequenceFileInputFormat.class);
+        FileInputFormat.setInputPaths(job, seqFile);
+        job.setMapperClass(ToHbaseMap.class);
+        TableMapReduceUtil.initTableReducerJob(&quot;weibo&quot;,null,job);
+        job.setNumReduceTasks(0);
+        TableMapReduceUtil.addDependencyJars(job);
+        System.exit(job.waitForCompletion(true)?0:1);
+
+    }
+}
+
+</code></pre></div></div> <div class="content-time" data-v-1c19f939><time datetime="2019-02-22" class="time-text" data-v-1c19f939>Create Time: 2017-12-28</time> <time datetime="2019-02-22" class="time-text" data-v-1c19f939>Last Updated: 2019-7-18</time></div></article> <section class="flex-xb main info-nav" data-v-fe3ae8a4 data-v-c8515940><a href="/2017/12/28/%E4%BB%8Emongodb%E6%8A%BD%E5%8F%96%E6%95%B0%E6%8D%AE%E5%AF%BC%E5%85%A5mysql/" class="flex-xb nav-item" data-v-fe3ae8a4><div class="flex-xcc item-img" data-v-fe3ae8a4><img src="/images/8.jpg" alt="从MongoDB抽取数据导入mysql" class="img" data-v-fe3ae8a4></div> <article class="flex-ysc item-content" data-v-fe3ae8a4><h2 class="content-title" data-v-fe3ae8a4>从MongoDB抽取数据导入mysql</h2> <div class="content" data-v-fe3ae8a4></div></article></a> <a href="/2017/12/28/%E4%BB%8Ehdfs%E4%B8%8A%E8%AF%BB%E5%8F%96%E5%B8%A6lzo%E5%8E%8B%E7%BC%A9%E7%9A%84sequencefile%E6%96%87%E4%BB%B6/" class="flex-xb nav-item" data-v-fe3ae8a4><div class="flex-xcc item-img" data-v-fe3ae8a4><img src="/images/7.jpg" alt="从HDFS上读取带lzo压缩的SequenceFile文件" class="img" data-v-fe3ae8a4></div> <article class="flex-ysc item-content" data-v-fe3ae8a4><h2 class="content-title" data-v-fe3ae8a4>从HDFS上读取带lzo压缩的SequenceFile文件</h2> <div class="content" data-v-fe3ae8a4></div></article></a></section> <!----></section></section> <footer class="footer" data-v-074adb81 data-v-671cfc84><nav class="link-list" data-v-074adb81><a href="/" class="list-item router-link-active" data-v-074adb81>link</a></nav> <a href="/" class="copyright router-link-active" data-v-074adb81> © 2019</a></footer></section><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.49c8d00f.js" defer></script><script src="/assets/js/11.a2c3fa03.js" defer></script>
+  </body>
+</html>

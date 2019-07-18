@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>从MongoDB抽取数据导入mysql</title>
+    <meta name="description" content="从MongoDB抽取数据导入mysql示例代码">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.6278cda6.css" as="style"><link rel="preload" href="/assets/js/app.49c8d00f.js" as="script"><link rel="preload" href="/assets/js/17.eac59e73.js" as="script"><link rel="prefetch" href="/assets/js/10.c6d02722.js"><link rel="prefetch" href="/assets/js/11.a2c3fa03.js"><link rel="prefetch" href="/assets/js/12.835a95df.js"><link rel="prefetch" href="/assets/js/13.59bff5ab.js"><link rel="prefetch" href="/assets/js/14.f49df33e.js"><link rel="prefetch" href="/assets/js/15.a9755114.js"><link rel="prefetch" href="/assets/js/16.c12aeceb.js"><link rel="prefetch" href="/assets/js/18.81cdfb3d.js"><link rel="prefetch" href="/assets/js/19.2d7e3beb.js"><link rel="prefetch" href="/assets/js/2.8ce52297.js"><link rel="prefetch" href="/assets/js/20.75286fd8.js"><link rel="prefetch" href="/assets/js/21.70fa38fd.js"><link rel="prefetch" href="/assets/js/3.fa1d3b6a.js"><link rel="prefetch" href="/assets/js/4.83cc12c6.js"><link rel="prefetch" href="/assets/js/5.14477e4e.js"><link rel="prefetch" href="/assets/js/6.2705424e.js"><link rel="prefetch" href="/assets/js/7.adaa1840.js"><link rel="prefetch" href="/assets/js/8.ccb3c3b8.js"><link rel="prefetch" href="/assets/js/9.99ac785a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6278cda6.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><section id="global-layout" data-v-671cfc84><header class="header" data-v-02db179a data-v-671cfc84><div class="header-navbar" data-v-02db179a><div class="flex-xbc main header-nav" data-v-02db179a><div class="nav-link" data-v-02db179a><a href="/" class="inblock link-logo router-link-active" data-v-02db179a></a> <nav class="link-list" data-v-02db179a><a href="/" class="list-item router-link-active" data-v-02db179a>Home</a><a href="/posts/" class="list-item" data-v-02db179a>Blog</a><a href="/about/" class="list-item" data-v-02db179a>About</a><a href="/category/" class="list-item" data-v-02db179a>Category</a><a href="/tag/" class="list-item" data-v-02db179a>Tag</a></nav></div> <div class="search-box" data-v-02db179a><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div></div></div> </header> <!----> <section class="page" data-v-671cfc84><section class="info" style="background-image:url(/images/8.jpg);" data-v-c8515940><article class="main info-content" data-v-1c19f939 data-v-c8515940><div class="content-header" data-v-1c19f939><h1 class="header-title" data-v-1c19f939>从MongoDB抽取数据导入mysql</h1></div> <!----> <div class="content content__default" data-v-1c19f939><div class="language-python extra-class"><pre class="language-python"><code><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">from</span> pymongo <span class="token keyword">import</span> MongoClient
+<span class="token keyword">import</span> io
+<span class="token keyword">import</span> traceback
+<span class="token keyword">import</span> sys
+<span class="token builtin">reload</span><span class="token punctuation">(</span>sys<span class="token punctuation">)</span>
+sys<span class="token punctuation">.</span>setdefaultencoding<span class="token punctuation">(</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
+<span class="token keyword">import</span> MySQLdb
+
+conn<span class="token operator">=</span>MySQLdb<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span>port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>user<span class="token operator">=</span><span class="token string">'lcc'</span><span class="token punctuation">,</span>passwd<span class="token operator">=</span><span class="token string">'chaochaoliu'</span><span class="token punctuation">,</span>db<span class="token operator">=</span><span class="token string">'weibo_casc'</span><span class="token punctuation">,</span>charset<span class="token operator">=</span><span class="token string">'utf8mb4'</span><span class="token punctuation">)</span>
+cur<span class="token operator">=</span>conn<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+sql<span class="token operator">=</span><span class="token string">'INSERT into cas values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'</span>
+
+</code></pre></div> <div class="language- extra-class"><pre class="language-text"><code>client1 = MongoClient('localhost', 1234)
+client2 = MongoClient('localhost', 2341)
+client3 = MongoClient('localhost', 3412)
+#client4 = MongoClient('localhost', 4123)
+client5 = MongoClient('localhost', 5123)
+#client6 = MongoClient('localhost', 6123)
+
+db1 = client1.test
+db2 = client2.test
+db3 = client3.test
+#db4 = client4.test
+db5 = client5.test
+#db6 = client6.test
+
+users=db1.users
+blogs1 = db1.microblogs
+blogs2 = db2.microblogs
+blogs3 = db3.microblogs
+#blogs4 = db4.microblogs
+blogs5 = db5.microblogs
+#blogs6 = db6.microblogs
+#blogs=[blogs1,blogs2,blogs3,blogs4,blogs5,blogs6]
+blogs=[blogs1,blogs2,blogs3,blogs5]
+
+for data in users.find():
+	try:
+		userid=data['id']
+		create_time=data['created_at']
+		location=data['location']
+		for b in blogs:
+			param=[]
+			try:
+				for weibo in b.find({&quot;user_id&quot;:userid}):
+					try:
+						id=weibo['_id']
+						text=weibo['text']
+						time=weibo['created_at']
+						if weibo.has_key('retweeted_status'):
+							ret=&quot;1&quot;
+							re_stat=weibo['retweeted_status']
+							re_text=re_stat['text']
+							re_time=re_stat['created_at']
+							re_user=re_stat['user_id']
+						else:
+							ret=&quot;0&quot;
+							re_text=&quot;&quot;
+							re_time=&quot;&quot;
+							re_user=&quot;&quot;
+						param.append([str(id),str(userid),str(text.encode(&quot;utf8&quot;)),str(time),str(location.encode(&quot;utf8&quot;)),str(create_time),str(re_text.encode(&quot;utf8&quot;)),str(re_time),str(re_user),str(ret)])
+					except:
+						continue
+				try:
+					cur.executemany(sql,param)
+					conn.commit()
+				except:
+					continue
+			except:
+				continue
+	except:
+		continue
+
+cur.close()
+conn.close()
+client1.close()
+client2.close()
+client3.close()
+client4.close()
+client5.close()
+client6.close()
+
+
+</code></pre></div></div> <div class="content-time" data-v-1c19f939><time datetime="2019-02-22" class="time-text" data-v-1c19f939>Create Time: 2017-12-28</time> <time datetime="2019-02-22" class="time-text" data-v-1c19f939>Last Updated: 2019-7-18</time></div></article> <section class="flex-xb main info-nav" data-v-fe3ae8a4 data-v-c8515940><a href="/2018/11/30/joint-modeling-of-event-sequence-and-time-series-with-attentional%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="flex-xb nav-item" data-v-fe3ae8a4><div class="flex-xcc item-img" data-v-fe3ae8a4><img src="/images/3.jpg" alt="Joint Modeling of Event Sequence and Time Series with Attentional论文笔记" class="img" data-v-fe3ae8a4></div> <article class="flex-ysc item-content" data-v-fe3ae8a4><h2 class="content-title" data-v-fe3ae8a4>Joint Modeling of Event Sequence and Time Series with Attentional论文笔记</h2> <div class="content" data-v-fe3ae8a4></div></article></a> <a href="/2017/12/28/hdfs%E6%95%B0%E6%8D%AE%E7%94%A8mapreduce%E5%AF%BC%E5%85%A5hbase/" class="flex-xb nav-item" data-v-fe3ae8a4><div class="flex-xcc item-img" data-v-fe3ae8a4><img src="/images/2.jpg" alt="HDFS数据用MapReduce导入Hbase" class="img" data-v-fe3ae8a4></div> <article class="flex-ysc item-content" data-v-fe3ae8a4><h2 class="content-title" data-v-fe3ae8a4>HDFS数据用MapReduce导入Hbase</h2> <div class="content" data-v-fe3ae8a4></div></article></a></section> <!----></section></section> <footer class="footer" data-v-074adb81 data-v-671cfc84><nav class="link-list" data-v-074adb81><a href="/" class="list-item router-link-active" data-v-074adb81>link</a></nav> <a href="/" class="copyright router-link-active" data-v-074adb81> © 2019</a></footer></section><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.49c8d00f.js" defer></script><script src="/assets/js/17.eac59e73.js" defer></script>
+  </body>
+</html>
