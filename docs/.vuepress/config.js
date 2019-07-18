@@ -20,6 +20,9 @@ module.exports = {
     useVssue: false
   },
   plugins: [
+    ['@vuepress/google-analytics',{
+      'ga': 'UA-144139750-1'
+    }],
     ['mathjax', {
       target: 'svg',
       macros: {
