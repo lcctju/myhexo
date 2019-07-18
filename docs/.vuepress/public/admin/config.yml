@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (master by default)
+
+media_folder: "/docs/.vuepress/public/images" # Folder where user uploaded files should go
+public_folder: "/docs/.vuepress/dist/images"
+
+# This line should *not* be indented
+publish_mode: editorial_workflow
+
+collections:
+  - name: "Posts" # Used in routes, e.g., /admin/collections/blog
+    folder: "/docs/posts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Lang", name: "lang", widget: "string"}
+      - {label: "Display", name: "display", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "Pages" # Used in routes, e.g., /admin/collections/blog
+    files:
+      - name: "about"
+        file: "/docs/about/index.md" # The path to the folder where the documents are stored
+        fields: # The fields for each document, usually in front matter
+         - {label: "Title", name: "title", widget: "string"}
+         - {label: "Lang", name: "lang", widget: "string"}
+         - {label: "Layout", name: "layout", widget: "string"}
+         - {label: "Publish Date", name: "date", widget: "datetime"}
+         - {label: "Body", name: "body", widget: "markdown"}
