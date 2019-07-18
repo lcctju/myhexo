@@ -20,6 +20,7 @@ module.exports = {
     useVssue: false
   },
   plugins: [
+    ['vuepress-plugin-baidu-autopush'],
     ['@vuepress/google-analytics',{
       'ga': 'UA-144139750-1'
     }],

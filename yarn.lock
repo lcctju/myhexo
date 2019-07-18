@@ -7804,6 +7804,11 @@ vuepress-mergeable@^1.0.2:
   dependencies:
     deconstruct-merge "^1.1.0"
 
+vuepress-plugin-baidu-autopush@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-baidu-autopush/-/vuepress-plugin-baidu-autopush-1.0.1.tgz#e5042170f05a585c4a38f876e01ff4706cd82fbe"
+  integrity sha512-KVQkrmMgPY+GG8dtI2wcRxUv1n2h5DM8aFs75ltsSlFBSS9C/vfLb2LmywXAsoCXk2EHya2p66cpn7BxofK+Mw==
+
 vuepress-plugin-blog-multidir@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/vuepress-plugin-blog-multidir/-/vuepress-plugin-blog-multidir-1.0.5.tgz#173acaba3f06a7ed7462157db62b6f1d3a2c1524"
