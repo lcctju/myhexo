@@ -31,7 +31,7 @@ module.exports = {
     }],
     // add vuepress-plugin-sitemap
     ['sitemap', {
-      hostname: 'https://ououe.com',
+      hostname: 'https://ccliu.netlify.com/',
       changefreq: 'weekly'
     }],
     // add vuepress-plugin-reading-progress
