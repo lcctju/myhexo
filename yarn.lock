@@ -928,7 +928,7 @@
   dependencies:
     lodash.throttle "^4.1.1"
 
-"@vuepress/plugin-back-to-top@^1.0.0-alpha.20", "@vuepress/plugin-back-to-top@^1.0.1":
+"@vuepress/plugin-back-to-top@^1.0.0-alpha.20", "@vuepress/plugin-back-to-top@^1.0.1", "@vuepress/plugin-back-to-top@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.0.2.tgz#54b8cd65101b2b660a728d4c7d1203f2aa7a028f"
   integrity sha512-dZDFzQdr7GZEq7r1TsSaOCDEkp8Zc1hz3IA18Il4yjPPhaHJUv6fBA1sQJPZfJJ1xEg1TN0GSQyhcjfS5m3Frw==
@@ -952,7 +952,7 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@vuepress/plugin-medium-zoom@^1.0.0-alpha.20", "@vuepress/plugin-medium-zoom@^1.0.1":
+"@vuepress/plugin-medium-zoom@^1.0.0-alpha.20", "@vuepress/plugin-medium-zoom@^1.0.1", "@vuepress/plugin-medium-zoom@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-medium-zoom/-/plugin-medium-zoom-1.0.2.tgz#31f82f7ec48b55f06890081e0edf7b6519be0dca"
   integrity sha512-DtJ29qdVEkIUjGChH/zzoNssZeFANWX79xuZaEzxtPJy8daeqGG8znehl7DPkwzBhFjz0bSoJ7I4x2a45uDIpg==
@@ -966,7 +966,7 @@
   dependencies:
     nprogress "^0.2.0"
 
-"@vuepress/plugin-pwa@^1.0.0-alpha.20":
+"@vuepress/plugin-pwa@^1.0.0-alpha.20", "@vuepress/plugin-pwa@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.0.2.tgz#af37e2e1b3b29382a4daf8c2e350059b769dd3cb"
   integrity sha512-UNFcZCUS2p0Ox9yH/VWzdivBJZTPjbfpXv53Pcv/PdEnwlVjRyM2rhD2gyBBe/Y+M7k4imRJI3SaAOOjVRq1BQ==
@@ -4729,7 +4729,7 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.3, lodash@^4.17.5:
+lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.3, lodash@^4.17.5:
   version "4.17.14"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
   integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
@@ -6845,6 +6845,15 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+sitemap@^2.0.1:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/sitemap/-/sitemap-2.2.0.tgz#98b8502762c5d7e8c77c9be5061dce85b326f1b0"
+  integrity sha512-9Zoi3UBhSIt5jWENDRUbzsqLMJ+Fha3P2aQ2PRghmh0FOivtHsC4FAJdkAEKHvATajd74BWp/57Yh7kz/UA53Q==
+  dependencies:
+    lodash "^4.17.10"
+    url-join "^4.0.0"
+    xmlbuilder "^10.0.0"
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/slash/-/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"
@@ -7601,6 +7610,11 @@ urix@^0.1.0:
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
 
+url-join@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.1.tgz#b642e21a2646808ffa178c4c5fda39844e12cde7"
+  integrity sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==
+
 url-loader@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-1.1.2.tgz#b971d191b83af693c5e3fea4064be9e1f2d7f8d8"
@@ -7819,6 +7833,18 @@ vuepress-plugin-mathjax@^1.2.8:
     lru-cache "^5.1.1"
     mathjax3 "3.0.0-beta.3"
     vuepress-mergeable "^1.0.2"
+
+vuepress-plugin-reading-progress@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-reading-progress/-/vuepress-plugin-reading-progress-1.0.7.tgz#9a278866b5280e447226579945eded3055ba48ce"
+  integrity sha512-XFnD42/Xt4ZQ3G0j1ViF2WmBJM7f+zYJLKfD2ZEkIq3Ar38c3FKR/LU94aENaWRGnfDMDmAMEYjLrcmR4uq49g==
+
+vuepress-plugin-sitemap@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-sitemap/-/vuepress-plugin-sitemap-2.1.2.tgz#18c61b6349055be2051dedd0eddfb4c7dc69cd7f"
+  integrity sha512-x+jQVyhexQIn2XqjZbspdi0fmwGHBEaXASn6Oyrxkls+Z1qjTn/zr3DjVBbNd4VP6L5AtkDN8nvBEVfKTpJxjQ==
+  dependencies:
+    sitemap "^2.0.1"
 
 vuepress-theme-ououe@^1.3.3:
   version "1.3.3"
@@ -8220,6 +8246,11 @@ write@1.0.3:
   integrity sha512-/lg70HAjtkUgWPVZhZcm+T4hkL8Zbtp1nFNOn3lRrxnlv50SRBv7cR7RqR+GMsd3hUXy9hWBo4CHTbFTcOYwig==
   dependencies:
     mkdirp "^0.5.1"
+
+xmlbuilder@^10.0.0:
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-10.1.1.tgz#8cae6688cc9b38d850b7c8d3c0a4161dcaf475b0"
+  integrity sha512-OyzrcFLL/nb6fMGHbiRDuPup9ljBycsdCypwuyg5AAHvyWzGfChJpCXMG88AGTIMFhGZ9RccFN1e6lhg3hkwKg==
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"
