@@ -11,6 +11,7 @@ publish_mode: editorial_workflow
 collections:
   - name: "Posts" # Used in routes, e.g., /admin/collections/blog
     label: "posts"
+    preview_path: "/docs/.vuepress/dist/{{year}}/{{month}}/{{title}}"
     folder: "/docs/posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in front matter
