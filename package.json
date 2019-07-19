@@ -13,6 +13,7 @@
   "dependencies": {
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "markdown-it-footnote": "^3.0.2",
     "postcss-flex-alias": "^1.0.0",
     "postcss-propro": "^1.0.3",
     "vuepress-plugin-baidu-autopush": "^1.0.1",

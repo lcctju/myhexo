@@ -12,8 +12,6 @@ tags:
 
 
 ```java
-
-
 package hbase;
 
 import org.apache.hadoop.conf.Configuration;
@@ -30,7 +28,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.SequenceFileInputFormat;
 ```
 <!--more-->
-```
+```java
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

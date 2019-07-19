@@ -1,6 +1,11 @@
 module.exports = {
   theme: 'ououe',
   evergreen: true,
+  markdown: {
+    extendMarkdown: (md) => {
+      md.use(require('markdown-it-footnote'))
+    }
+  },
   themeConfig:{
     search: true,
     pageGroup: 5,

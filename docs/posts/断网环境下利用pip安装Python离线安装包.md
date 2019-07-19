@@ -15,7 +15,7 @@ tags:
 python.exe get-pip.py --no-index --find-links=d:\python27\packages
 
 
-##打包已安装的包
+## 打包已安装的包
 
 在D:python27目录下新建packages文件夹用来存储下载下来的所需安装包。
 <!--more-->
@@ -25,17 +25,19 @@ pip list #查看安装的包
 pip freeze >requirements.txt
 pip install --download d:\python27\packages -r requirements.txt
 
-##离线情况安装打包好的包
+## 离线情况安装打包好的包
 将packages文件夹和requirement.txt拷贝至离线机器上目录下，packages文件夹放在D:Python27下，requirement.txt放在D:Python27Scripts下。
 
 requirements.txt文件放在pip.exe目录下。
 
 pip install --no-index --find-index=d:\python27\packages -r requirements.txt
 
-##补充
-1.下载指定的包到指定文件夹
+## 补充
+
+1. 下载指定的包到指定文件夹
 
 pip install --download d:\python27\packs pandas（-r requirements.txt）
-2.安装指定的离线包
+
+2. 安装指定的离线包
 
 pip install --no-index --find-links=d:\python27\packs\ pandas （-r requirements.txt）

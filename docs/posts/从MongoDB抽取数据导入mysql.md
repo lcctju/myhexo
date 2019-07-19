@@ -26,7 +26,7 @@ sql='INSERT into cas values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
 
 ```
 <!--more-->
-```
+```python
 client1 = MongoClient('localhost', 1234)
 client2 = MongoClient('localhost', 2341)
 client3 = MongoClient('localhost', 3412)

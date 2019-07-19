@@ -24,7 +24,7 @@ import java.util.*;
  */
  ```
  <!--more-->
- ```
+ ```java
 public class readweibo {
 
     public static void main(String[] args) throws Exception {

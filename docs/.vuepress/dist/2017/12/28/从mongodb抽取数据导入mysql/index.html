@@ -7,7 +7,7 @@
     <meta name="description" content="从MongoDB抽取数据导入mysql示例代码">
     
     
-    <link rel="preload" href="/assets/css/0.styles.61474520.css" as="style"><link rel="preload" href="/assets/js/app.d45ac285.js" as="script"><link rel="preload" href="/assets/js/17.12cd212b.js" as="script"><link rel="prefetch" href="/assets/js/10.3a8fccc0.js"><link rel="prefetch" href="/assets/js/11.e0ef5344.js"><link rel="prefetch" href="/assets/js/12.4b2fd3e4.js"><link rel="prefetch" href="/assets/js/13.2d7556b8.js"><link rel="prefetch" href="/assets/js/14.ad8766b7.js"><link rel="prefetch" href="/assets/js/15.38713f1e.js"><link rel="prefetch" href="/assets/js/16.afcb4f5c.js"><link rel="prefetch" href="/assets/js/18.b983383d.js"><link rel="prefetch" href="/assets/js/19.a0d9417f.js"><link rel="prefetch" href="/assets/js/2.8e7f206b.js"><link rel="prefetch" href="/assets/js/20.de73addc.js"><link rel="prefetch" href="/assets/js/21.2c55062b.js"><link rel="prefetch" href="/assets/js/3.2a40ae30.js"><link rel="prefetch" href="/assets/js/4.2e9102b4.js"><link rel="prefetch" href="/assets/js/5.e5044277.js"><link rel="prefetch" href="/assets/js/6.2d15c32e.js"><link rel="prefetch" href="/assets/js/7.cce0b818.js"><link rel="prefetch" href="/assets/js/8.110aac7b.js"><link rel="prefetch" href="/assets/js/9.144d8c7b.js">
+    <link rel="preload" href="/assets/css/0.styles.61474520.css" as="style"><link rel="preload" href="/assets/js/app.9770e2f0.js" as="script"><link rel="preload" href="/assets/js/17.a0e1995b.js" as="script"><link rel="prefetch" href="/assets/js/10.bb8605bb.js"><link rel="prefetch" href="/assets/js/11.c8234ffc.js"><link rel="prefetch" href="/assets/js/12.9caccfbe.js"><link rel="prefetch" href="/assets/js/13.a40f5384.js"><link rel="prefetch" href="/assets/js/14.9b4423ac.js"><link rel="prefetch" href="/assets/js/15.4568e17a.js"><link rel="prefetch" href="/assets/js/16.5f3eb253.js"><link rel="prefetch" href="/assets/js/18.374bd294.js"><link rel="prefetch" href="/assets/js/19.f71eecf3.js"><link rel="prefetch" href="/assets/js/2.c889b7c4.js"><link rel="prefetch" href="/assets/js/20.0f30ddae.js"><link rel="prefetch" href="/assets/js/21.2c55062b.js"><link rel="prefetch" href="/assets/js/3.7702194e.js"><link rel="prefetch" href="/assets/js/4.956e6fbf.js"><link rel="prefetch" href="/assets/js/5.2c5cf4ca.js"><link rel="prefetch" href="/assets/js/6.6fea2ada.js"><link rel="prefetch" href="/assets/js/7.1db6db82.js"><link rel="prefetch" href="/assets/js/8.de698218.js"><link rel="prefetch" href="/assets/js/9.aac8c412.js">
     <link rel="stylesheet" href="/assets/css/0.styles.61474520.css">
   </head>
   <body>
@@ -25,78 +25,78 @@ cur<span class="token operator">=</span>conn<span class="token punctuation">.</s
 
 sql<span class="token operator">=</span><span class="token string">'INSERT into cas values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'</span>
 
-</code></pre></div> <div class="language- extra-class"><pre class="language-text"><code>client1 = MongoClient('localhost', 1234)
-client2 = MongoClient('localhost', 2341)
-client3 = MongoClient('localhost', 3412)
-#client4 = MongoClient('localhost', 4123)
-client5 = MongoClient('localhost', 5123)
-#client6 = MongoClient('localhost', 6123)
+</code></pre></div> <div class="language-python extra-class"><pre class="language-python"><code>client1 <span class="token operator">=</span> MongoClient<span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">1234</span><span class="token punctuation">)</span>
+client2 <span class="token operator">=</span> MongoClient<span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">2341</span><span class="token punctuation">)</span>
+client3 <span class="token operator">=</span> MongoClient<span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">3412</span><span class="token punctuation">)</span>
+<span class="token comment">#client4 = MongoClient('localhost', 4123)</span>
+client5 <span class="token operator">=</span> MongoClient<span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">5123</span><span class="token punctuation">)</span>
+<span class="token comment">#client6 = MongoClient('localhost', 6123)</span>
 
-db1 = client1.test
-db2 = client2.test
-db3 = client3.test
-#db4 = client4.test
-db5 = client5.test
-#db6 = client6.test
+db1 <span class="token operator">=</span> client1<span class="token punctuation">.</span>test
+db2 <span class="token operator">=</span> client2<span class="token punctuation">.</span>test
+db3 <span class="token operator">=</span> client3<span class="token punctuation">.</span>test
+<span class="token comment">#db4 = client4.test</span>
+db5 <span class="token operator">=</span> client5<span class="token punctuation">.</span>test
+<span class="token comment">#db6 = client6.test</span>
 
-users=db1.users
-blogs1 = db1.microblogs
-blogs2 = db2.microblogs
-blogs3 = db3.microblogs
-#blogs4 = db4.microblogs
-blogs5 = db5.microblogs
-#blogs6 = db6.microblogs
-#blogs=[blogs1,blogs2,blogs3,blogs4,blogs5,blogs6]
-blogs=[blogs1,blogs2,blogs3,blogs5]
+users<span class="token operator">=</span>db1<span class="token punctuation">.</span>users
+blogs1 <span class="token operator">=</span> db1<span class="token punctuation">.</span>microblogs
+blogs2 <span class="token operator">=</span> db2<span class="token punctuation">.</span>microblogs
+blogs3 <span class="token operator">=</span> db3<span class="token punctuation">.</span>microblogs
+<span class="token comment">#blogs4 = db4.microblogs</span>
+blogs5 <span class="token operator">=</span> db5<span class="token punctuation">.</span>microblogs
+<span class="token comment">#blogs6 = db6.microblogs</span>
+<span class="token comment">#blogs=[blogs1,blogs2,blogs3,blogs4,blogs5,blogs6]</span>
+blogs<span class="token operator">=</span><span class="token punctuation">[</span>blogs1<span class="token punctuation">,</span>blogs2<span class="token punctuation">,</span>blogs3<span class="token punctuation">,</span>blogs5<span class="token punctuation">]</span>
 
-for data in users.find():
-	try:
-		userid=data['id']
-		create_time=data['created_at']
-		location=data['location']
-		for b in blogs:
-			param=[]
-			try:
-				for weibo in b.find({&quot;user_id&quot;:userid}):
-					try:
-						id=weibo['_id']
-						text=weibo['text']
-						time=weibo['created_at']
-						if weibo.has_key('retweeted_status'):
-							ret=&quot;1&quot;
-							re_stat=weibo['retweeted_status']
-							re_text=re_stat['text']
-							re_time=re_stat['created_at']
-							re_user=re_stat['user_id']
-						else:
-							ret=&quot;0&quot;
-							re_text=&quot;&quot;
-							re_time=&quot;&quot;
-							re_user=&quot;&quot;
-						param.append([str(id),str(userid),str(text.encode(&quot;utf8&quot;)),str(time),str(location.encode(&quot;utf8&quot;)),str(create_time),str(re_text.encode(&quot;utf8&quot;)),str(re_time),str(re_user),str(ret)])
-					except:
-						continue
-				try:
-					cur.executemany(sql,param)
-					conn.commit()
-				except:
-					continue
-			except:
-				continue
-	except:
-		continue
+<span class="token keyword">for</span> data <span class="token keyword">in</span> users<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">try</span><span class="token punctuation">:</span>
+		userid<span class="token operator">=</span>data<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span>
+		create_time<span class="token operator">=</span>data<span class="token punctuation">[</span><span class="token string">'created_at'</span><span class="token punctuation">]</span>
+		location<span class="token operator">=</span>data<span class="token punctuation">[</span><span class="token string">'location'</span><span class="token punctuation">]</span>
+		<span class="token keyword">for</span> b <span class="token keyword">in</span> blogs<span class="token punctuation">:</span>
+			param<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+			<span class="token keyword">try</span><span class="token punctuation">:</span>
+				<span class="token keyword">for</span> weibo <span class="token keyword">in</span> b<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">&quot;user_id&quot;</span><span class="token punctuation">:</span>userid<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+					<span class="token keyword">try</span><span class="token punctuation">:</span>
+						<span class="token builtin">id</span><span class="token operator">=</span>weibo<span class="token punctuation">[</span><span class="token string">'_id'</span><span class="token punctuation">]</span>
+						text<span class="token operator">=</span>weibo<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span>
+						time<span class="token operator">=</span>weibo<span class="token punctuation">[</span><span class="token string">'created_at'</span><span class="token punctuation">]</span>
+						<span class="token keyword">if</span> weibo<span class="token punctuation">.</span>has_key<span class="token punctuation">(</span><span class="token string">'retweeted_status'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+							ret<span class="token operator">=</span><span class="token string">&quot;1&quot;</span>
+							re_stat<span class="token operator">=</span>weibo<span class="token punctuation">[</span><span class="token string">'retweeted_status'</span><span class="token punctuation">]</span>
+							re_text<span class="token operator">=</span>re_stat<span class="token punctuation">[</span><span class="token string">'text'</span><span class="token punctuation">]</span>
+							re_time<span class="token operator">=</span>re_stat<span class="token punctuation">[</span><span class="token string">'created_at'</span><span class="token punctuation">]</span>
+							re_user<span class="token operator">=</span>re_stat<span class="token punctuation">[</span><span class="token string">'user_id'</span><span class="token punctuation">]</span>
+						<span class="token keyword">else</span><span class="token punctuation">:</span>
+							ret<span class="token operator">=</span><span class="token string">&quot;0&quot;</span>
+							re_text<span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+							re_time<span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+							re_user<span class="token operator">=</span><span class="token string">&quot;&quot;</span>
+						param<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token builtin">id</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>userid<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>text<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">&quot;utf8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>time<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>location<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">&quot;utf8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>create_time<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>re_text<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">&quot;utf8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>re_time<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>re_user<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>ret<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+					<span class="token keyword">except</span><span class="token punctuation">:</span>
+						<span class="token keyword">continue</span>
+				<span class="token keyword">try</span><span class="token punctuation">:</span>
+					cur<span class="token punctuation">.</span>executemany<span class="token punctuation">(</span>sql<span class="token punctuation">,</span>param<span class="token punctuation">)</span>
+					conn<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+				<span class="token keyword">except</span><span class="token punctuation">:</span>
+					<span class="token keyword">continue</span>
+			<span class="token keyword">except</span><span class="token punctuation">:</span>
+				<span class="token keyword">continue</span>
+	<span class="token keyword">except</span><span class="token punctuation">:</span>
+		<span class="token keyword">continue</span>
 
-cur.close()
-conn.close()
-client1.close()
-client2.close()
-client3.close()
-client4.close()
-client5.close()
-client6.close()
+cur<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+conn<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+client1<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+client2<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+client3<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+client4<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+client5<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+client6<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
 </code></pre></div></div> <div class="content-time" data-v-1c19f939><time datetime="2019-02-22" class="time-text" data-v-1c19f939>Create Time: 2017-12-28</time> <time datetime="2019-02-22" class="time-text" data-v-1c19f939>Last Updated: 2019-7-18</time></div></article> <section class="flex-xb main info-nav" data-v-fe3ae8a4 data-v-c8515940><a href="/2018/11/30/joint-modeling-of-event-sequence-and-time-series-with-attentional%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" class="flex-xb nav-item" data-v-fe3ae8a4><div class="flex-xcc item-img" data-v-fe3ae8a4><img src="/images/3.jpg" alt="Joint Modeling of Event Sequence and Time Series with Attentional论文笔记" class="img" data-v-fe3ae8a4></div> <article class="flex-ysc item-content" data-v-fe3ae8a4><h2 class="content-title" data-v-fe3ae8a4>Joint Modeling of Event Sequence and Time Series with Attentional论文笔记</h2> <div class="content" data-v-fe3ae8a4></div></article></a> <a href="/2017/12/28/hdfs%E6%95%B0%E6%8D%AE%E7%94%A8mapreduce%E5%AF%BC%E5%85%A5hbase/" class="flex-xb nav-item" data-v-fe3ae8a4><div class="flex-xcc item-img" data-v-fe3ae8a4><img src="/images/2.jpg" alt="HDFS数据用MapReduce导入Hbase" class="img" data-v-fe3ae8a4></div> <article class="flex-ysc item-content" data-v-fe3ae8a4><h2 class="content-title" data-v-fe3ae8a4>HDFS数据用MapReduce导入Hbase</h2> <div class="content" data-v-fe3ae8a4></div></article></a></section> <!----></section></section> <footer class="footer" data-v-074adb81 data-v-671cfc84><nav class="link-list" data-v-074adb81><a href="/" class="list-item router-link-active" data-v-074adb81>link</a></nav> <a href="/" class="copyright router-link-active" data-v-074adb81> © 2019</a></footer></section><div class="global-ui"><!----><div class="reading-progress top" data-v-7681808f><div class="progress" data-v-7681808f></div></div></div></div>
-    <script src="/assets/js/app.d45ac285.js" defer></script><script src="/assets/js/17.12cd212b.js" defer></script>
+    <script src="/assets/js/app.9770e2f0.js" defer></script><script src="/assets/js/17.a0e1995b.js" defer></script>
   </body>
 </html>
