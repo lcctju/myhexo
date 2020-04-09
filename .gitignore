@@ -3,4 +3,6 @@ Thumbs.db
 db.json
 *.log
 node_modules/
+yarn-error.log
+yarn.lock
 .deploy*/

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ubuntu下的Texlive安装中文字体</title>
+    <meta name="description" content="在Linux服务器上配置Texlive的中文字体">
+    <meta name="generator" content="VuePress 1.4.0">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.4e2df076.css" as="style"><link rel="preload" href="/assets/js/app.1a29d03d.js" as="script"><link rel="preload" href="/assets/js/2.f871a337.js" as="script"><link rel="preload" href="/assets/js/11.b4a6fe15.js" as="script"><link rel="prefetch" href="/assets/js/10.8ae4fd58.js"><link rel="prefetch" href="/assets/js/12.c3467944.js"><link rel="prefetch" href="/assets/js/13.67518743.js"><link rel="prefetch" href="/assets/js/14.2d6c7991.js"><link rel="prefetch" href="/assets/js/15.af88460f.js"><link rel="prefetch" href="/assets/js/16.14ad2107.js"><link rel="prefetch" href="/assets/js/17.1416c008.js"><link rel="prefetch" href="/assets/js/3.8f4d9567.js"><link rel="prefetch" href="/assets/js/4.32231de5.js"><link rel="prefetch" href="/assets/js/5.1b2a905e.js"><link rel="prefetch" href="/assets/js/6.ebe5e418.js"><link rel="prefetch" href="/assets/js/7.7c6cae79.js"><link rel="prefetch" href="/assets/js/8.f1c968a5.js"><link rel="prefetch" href="/assets/js/9.d132fc3f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4e2df076.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><p>在Linux服务器上，使用TEX Live的完整安装版基于pdflatex编译tex文件，运行命令如下：</p> <div class="language- extra-class"><pre class="language-text"><code>pdflatex -synctex=1 -interaction=nonstopmode &quot;main&quot;.tex
+</code></pre></div><p>网上很多教程都是如何在Linux系统里安装字体，但是即使系统里已经安装中文字体，也会报如下错误：</p> <div class="language- extra-class"><pre class="language-text"><code>!pdfTeX error: pdflatex (file simhei.ttf): cannot open TrueType font file for reading 
+</code></pre></div><p>这时需要将对应的中文字体保存到'usr/local/texlive/texmf-local/fonts/truetype'中，注意’truetype‘文件夹命名正确。然后执行</p> <div class="language- extra-class"><pre class="language-text"><code>sudo mktexlsr（不需要路径输入命令）
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.1a29d03d.js" defer></script><script src="/assets/js/2.f871a337.js" defer></script><script src="/assets/js/11.b4a6fe15.js" defer></script>
+  </body>
+</html>
