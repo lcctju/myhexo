@@ -18,6 +18,7 @@ IJCAI 2019.[paper](https://www.ijcai.org/proceedings/2019/0560.pdf)
 *Cheng Yang, Maosong Sun, Haoran Liu,Shiyi Han, Zhiyuan Liu, and Huanbo Luan.*
  TKDE 2019.
 [paper](https://arxiv.org/pdf/1812.08933.pdf)
+<!--more-->
 3. **Information Cascades Modeling via Deep Multi-Task Learning.**
 *Xueqin Chen,  Kunpeng Zhang, Fan Zhou, Goce Trajcevski, Ting Zhong, and Fengli Zhang.*
  SIGIR 2019.
