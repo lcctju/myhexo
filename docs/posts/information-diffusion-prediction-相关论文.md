@@ -3,7 +3,7 @@ title: Information Diffusion Prediction 相关论文
 lang: zh-CN
 display: home
 description: 信息传播预测相关论文
-image: /docs/.vuepress/dist/images/4.jpg
+image: /images/4.jpg
 author: chaochao liu
 date: 2020-04-11T12:42:36.181Z
 tags:
