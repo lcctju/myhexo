@@ -9,7 +9,10 @@ date: 2020-04-11T12:42:36.181Z
 tags:
   - 信息传播
 ---
-
+## 2020
+1. **Cascade modeling with multihead self-attention.**
+*Chaochao Liu, Wenjun Wang, Pengfei Jiao, Xue Chen and Yueheng Sun.*
+IJCNN 2020.
 ## 2019
 1. **Community Structure Enhanced Cascade Prediction.**
 *Chaochao Liu, Wenjun Wang, Yueheng Sun.*
