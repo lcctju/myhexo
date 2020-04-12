@@ -9,92 +9,98 @@ date: 2020-04-11T12:42:36.181Z
 tags:
   - 信息传播
 ---
-
+## 2020
+1. **Cascade modeling with multihead self-attention.**
+*Chaochao Liu, Wenjun Wang, Pengfei Jiao, Xue Chen and Yueheng Sun.*
+IJCNN 2020.
 ## 2019
-1. **Multi-scale Information Diffusion Prediction with Reinforced Recurrent Networks.**
+1. **Community Structure Enhanced Cascade Prediction.**
+*Chaochao Liu, Wenjun Wang, Yueheng Sun.*
+Neurocomputing 2019.[paper](https://www.sciencedirect.com/science/article/abs/pii/S0925231219307751)
+2. **Multi-scale Information Diffusion Prediction with Reinforced Recurrent Networks.**
 *Cheng Yang, Jian Tang, Maosong Sun, Ganqu Cui, Zhiyuan Liu.*
 IJCAI 2019.[paper](https://www.ijcai.org/proceedings/2019/0560.pdf)
-2. **Neural diffusion model for microscopic cascade study.**
+3. **Neural diffusion model for microscopic cascade study.**
 *Cheng Yang, Maosong Sun, Haoran Liu,Shiyi Han, Zhiyuan Liu, and Huanbo Luan.*
  TKDE 2019.
 [paper](https://arxiv.org/pdf/1812.08933.pdf)
 <!--more-->
-3. **Information Cascades Modeling via Deep Multi-Task Learning.**
+4. **Information Cascades Modeling via Deep Multi-Task Learning.**
 *Xueqin Chen,  Kunpeng Zhang, Fan Zhou, Goce Trajcevski, Ting Zhong, and Fengli Zhang.*
  SIGIR 2019.
 [paper](https://dl.acm.org/citation.cfm?id=3331288)
-4. **Understanding Information Diffusion via Heterogeneous Information Network Embeddings.**
+5. **Understanding Information Diffusion via Heterogeneous Information Network Embeddings.**
 *Yuan Su, Xi Zhang, Senzhang Wang, Binxing Fang, Tianle Zhang, Philip S. Yu.*
  DASFAA 2019.
 [paper](https://link.springer.com/chapter/10.1007/978-3-030-18576-3_30)
-5. **Taxonomy and Evaluation for Microblog Popularity Prediction.**
+6. **Taxonomy and Evaluation for Microblog Popularity Prediction.**
 *Xiaofeng Gao, Zhenhao Cao, Sha Li, Bin Yao, Guihai Chen, Shaojie Tang.*
  TKDD 2019.
 [paper](https://dl.acm.org/citation.cfm?id=3301303)
-6. **Coupled Graph Neural Networks for Predicting the Popularity of Online Content.**
+7. **Coupled Graph Neural Networks for Predicting the Popularity of Online Content.**
 *Qi Cao, Huawei Shen, Jinhua Gao, Bingzheng Wei, Xueqi Cheng.*
  CIKM 2019.
 [paper](https://arxiv.org/pdf/1906.09032.pdf)
-7. **NPP: A neural popularity prediction model for social media content.**
+8. **NPP: A neural popularity prediction model for social media content.**
 *Guandan Chen, Qingchao Kong, Nan Xu, Wenji Mao.*
  Neurocomputing 2019.
 [paper](https://www.sciencedirect.com/science/article/pii/S0925231218314942)
-8. **DeepFork: Supervised Prediction of Information Diffusion in GitHub.**
+9. **DeepFork: Supervised Prediction of Information Diffusion in GitHub.**
 *Ramya Akula, Niloofar Yousefi, Ivan Garibay.*
 [paper](https://arxiv.org/pdf/1910.07999.pdf)
-9. **Information Diffusion Prediction via Recurrent Cascades Convolution.**
+10. **Information Diffusion Prediction via Recurrent Cascades Convolution.**
 *Xueqin Chen, Fan Zhou, Kunpeng Zhang, Goce Trajcevski, Ting Zhong, and Fengli Zhang.*
  IEEE ICDE 2019.
 [paper](https://ieeexplore.ieee.org/abstract/document/8731564)
-10. **Deep Learning Approach on Information Diffusion in Heterogeneous Networks.**
+11. **Deep Learning Approach on Information Diffusion in Heterogeneous Networks.**
 *Soheila Molaei, Hadi Zare, Hadi Veisi.*
  KBS 2019.
 [paper](https://arxiv.org/pdf/1902.08810.pdf)
-11. **Cascade2vec: Learning Dynamic Cascade Representation by Recurrent Graph Neural Networks.**
+12. **Cascade2vec: Learning Dynamic Cascade Representation by Recurrent Graph Neural Networks.**
 *Zhenhua Huang, Zhenyu Wang, Rui Zhang.*
  IEEE Access 2019.
 [paper](https://ieeexplore.ieee.org/abstract/document/8846015)
-12. **Prediction of Information Cascades via Content and Structure Integrated Whole Graph Embedding.**
+13. **Prediction of Information Cascades via Content and Structure Integrated Whole Graph Embedding.**
 *Xiaodong Feng, Qiang Zhao, Zhen Liu.*
  BSMDMA 2019.
 [paper](https://www.comp.hkbu.edu.hk/~xinhuang/BSMDMA2019/3.pdf)
-13. **COSINE: Community-Preserving Social Network Embedding From Information Diffusion Cascades.**
+14. **COSINE: Community-Preserving Social Network Embedding From Information Diffusion Cascades.**
 *Yuan Zhang, Tianshu Lyu, Yan Zhang.*
  AAAI 2019.
 [paper](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewPaper/16364)
-14. **A Recurrent Neural Cascade-based Model for Continuous-Time Diffusion.**
+15. **A Recurrent Neural Cascade-based Model for Continuous-Time Diffusion.**
 *Sylvain Lamprier.*
  ICML 2019.
 [paper](http://proceedings.mlr.press/v97/lamprier19a.html)
-15. **Prediction Model for Non-topological Event Propagation in Social Networks.**
+16. **Prediction Model for Non-topological Event Propagation in Social Networks.**
 *Zitu Liu, Rui Wang, Yong Liu.*
  ICPCSEE 2019.
 [paper](https://link.springer.com/chapter/10.1007/978-981-15-0118-0_19)
-16. **Information Diffusion Prediction with Network Regularized Role-based User Representation Learning.**
+17. **Information Diffusion Prediction with Network Regularized Role-based User Representation Learning.**
 *Zhitao Wang, Chengyao Chen, Wenjie Li.*
  TKDD 2019.
 [paper](https://dl.acm.org/citation.cfm?id=3314106)
-17. **Understanding the mechanism of social tie in the propagation process of social network with communication channel.**
+18. **Understanding the mechanism of social tie in the propagation process of social network with communication channel.**
 *Kai Li, Guangxi Lv, Zhefeng Wang, Qi Liu, Enhong Chen, Lisheng Qiao.*
  Frontiers of Computer Science 2019.
 [paper](https://link.springer.com/article/10.1007/s11704-018-7453-x)
-18. **Hierarchical Diffusion Attention Network.**
+19. **Hierarchical Diffusion Attention Network.**
 *Zhitao Wang, Wenjie Li.*
  IJCAI 2019.
 [paper](https://pdfs.semanticscholar.org/a8a7/353a42b90d2f43504783dc81ff28c11a9da5.pdf)
-19. **Predicting Future Participants of Information Propagation Trees.**
+20. **Predicting Future Participants of Information Propagation Trees.**
 *Hsing-Huan Chung, Hen-Hsen Huang, Hsin-Hsi Chen.*
  IEEE/WIC/ACM International Conference on Web Intelligence 2019.
 [paper](https://dl.acm.org/citation.cfm?id=3352540)
-20. **Dual Sequential Prediction Models Linking Sequential Recommendation and Information Dissemination.**
+21. **Dual Sequential Prediction Models Linking Sequential Recommendation and Information Dissemination.**
 *Qitian Wu, Yirui Gao, Xiaofeng Gao, Paul Weng, and Guihai Chen.*
  KDD 2019.
 [paper](https://dl.acm.org/citation.cfm?id=3330959)
-21. **Statistical Inference of Diffusion Networks.**
+22. **Statistical Inference of Diffusion Networks.**
 *Hao Huang, Qian Yan, Lu Chen, Yunjun Gao, Christian S. Jensen.*
  TKDE 2019.
 [paper](https://ieeexplore.ieee.org/document/8769880)
-22. **Learning Diffusions without Timestamps.**
+23. **Learning Diffusions without Timestamps.**
 *Hao Huang, Qian Yan, Ting Gan, Di Niu, Wei Lu, Yunjun Gao.*
  AAAI 2019.
 [paper](https://sites.ualberta.ca/~dniu/Homepage/Publications_files/huang-aaai-2019-2.pdf)
