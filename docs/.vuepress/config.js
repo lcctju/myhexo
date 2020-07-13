@@ -1,6 +1,9 @@
 module.exports = {
   theme: 'ououe',
   evergreen: true,
+  head: [
+    ['meta', { name: 'baidu-site-verification', content: 'Uka8ohOiXx'}]
+  ],
   markdown: {
     extendMarkdown: (md) => {
       md.use(require('markdown-it-footnote'))
