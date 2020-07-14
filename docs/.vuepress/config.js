@@ -1,4 +1,6 @@
 module.exports = {
+  title: '原创博客分享，分享机器学习、大数据、深度学习、Linux相关技术',
+  description: '关注社交网络分析、深度学习、信息传播、数据挖掘、Linux技术',
   theme: 'ououe',
   evergreen: true,
   head: [
