@@ -14,11 +14,11 @@ module.exports = {
     search: true,
     pageGroup: 5,
     nav: [
-      { text: 'Home', link: '/'},
-      { text: 'Blog', link: '/posts/'},
-      { text: 'About', link: '/about/'},
-      { text: 'Category', link: '/category/'},
-      { text: 'Tag', link: '/tag/'}
+      { text: '首页', link: '/'},
+      { text: '博客', link: '/posts/'},
+      { text: '关于', link: '/about/'},
+      { text: '分类', link: '/category/'},
+      { text: '标签', link: '/tag/'}
     ],
     footer:[{
       text: 'link',
