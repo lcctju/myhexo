@@ -3,7 +3,7 @@ module.exports = {
   theme: 'ououe',
   evergreen: true,
   head: [
-    ['meta', { name: 'baidu-site-verification', content: 'fP9EQkbGCM'}]
+    ['meta', { name: 'baidu-site-verification', content: 'fP9EQkbGCM'}],
   ],
   markdown: {
     extendMarkdown: (md) => {
@@ -32,6 +32,9 @@ module.exports = {
     ['vuepress-plugin-baidu-autopush'],
     ['@vuepress/google-analytics',{
       'ga': 'UA-144139750-1'
+    }],
+    ['vuepress-plugin-google-adsense',{
+      ad_client: 'ca-pub-1977396037355374'
     }],
     ['mathjax', {
       target: 'svg',

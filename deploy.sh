@@ -17,6 +17,7 @@ git add -A
 git commit -m 'deploy'
 
 # 使用 travis cl 自动构建
-git push -f git@github.com:lcctju/lcctju.github.io.git master
+#git push -f git@github.com:lcctju/lcctju.github.io.git master
+git push -f git@gitee.com:tjuchaochao/lcctju.git master
 
 cd -
