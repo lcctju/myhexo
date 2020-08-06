@@ -3,7 +3,7 @@ title: Mongodb 占用服务器内存过大解决方案
 lang: zh-CN
 display: home
 description: mongodb内存占用过大解决方案
-image: /docs/.vuepress/dist/images/timg.jpeg
+image: /images/timg.jpeg
 author: chaochaoliu
 date: 2020-08-06T01:06:56.884Z
 tags:
