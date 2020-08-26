@@ -7,9 +7,9 @@
   "name": "vue-site",
   "version": "0.0.0",
   "dependencies": {
-    "@vuepress/plugin-google-analytics": "1.4.0",
-    "less": "3.11.1",
-    "less-loader": "5.0.0",
+    "@vuepress/plugin-google-analytics": "1.5.4",
+    "less": "3.12.2",
+    "less-loader": "7.0.0",
     "markdown-it-footnote": "3.0.2",
     "postcss-flex-alias": "1.0.1",
     "postcss-propro": "1.0.3",
@@ -17,7 +17,7 @@
     "vuepress-plugin-blog-multidir": "1.0.5",
     "vuepress-plugin-mathjax": "1.2.8",
     "vuepress-plugin-sitemap": "^2.3.1",
-    "vuepress-theme-ououe": "1.5.0",
+    "vuepress-theme-ououe": "1.5.2",
     "yarn": "^1.22.4"
   },
   "devDependencies": {
